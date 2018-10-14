@@ -1,12 +1,12 @@
-package test.spec.VisualitzarCatalegSeries;
+package spec.SubscriureEpisodi;
 
 import test.spec.*;
-import classes.VisualitzarCatalegSeries;
+import classes.SubscriureEpisodi;
 
 import org.concordion.integration.junit4.ConcordionRunner;
 import org.junit.runner.RunWith;
 
 @RunWith(ConcordionRunner.class)
-public class VisualitzarCatalegSeriesTest {
+public class SubscriureEpisodiTest {
 
 }
