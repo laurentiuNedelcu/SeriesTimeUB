@@ -87,6 +87,7 @@ NotStartedYet "1" *--"*" NoDisponible :contè
 Persona <|-- Actors
 Persona <|-- Directors
 Persona <|-- Usuari
+Persona <|-- Administrador
 Actors <|-- ProtagonistesPrincipals
 EstatSèrie <|-- Completada
 EstatSèrie <|-- NoCompletada
