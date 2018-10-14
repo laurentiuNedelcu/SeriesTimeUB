@@ -65,6 +65,11 @@ object ValoracióUsuari{
     personatge favorit
     dispositiu utilitzat
 }
+object Administrador
+object Compte
+object EstatCompte
+object Activa
+object NoActiva
 
 SeriesTimeUB "1" *-- "1" Catàleg :contè
 Catàleg "1" *-- "*" Sèries :contè
@@ -86,6 +91,9 @@ EstatEpisodi <|-- Visualitzat
 EstatEpisodi <|-- NoVisualitzat
 Visualitzat <|-Subscrits
 NoVisualitzat <|- Seleccionables
+Compte <|-- EstatCompte
+EstatCompte <|-- Activa
+EstatCompte <|-- NoActiva
 
 Sèries "1" -- "*" Productora :té
 Sèries "1" -- "*" ProtagonistesPrincipals :té
@@ -97,5 +105,8 @@ Usuari "1" -- "1" WatchNext :disposa
 Usuari "1" -- "1" NotStartedYet :disposa
 Usuari "1" -- "*" ValoracióUsuari :realitza
 Visualitzat "1" -- "1" ValoracióUsuari: consta de
+SeriesTimeUB "1" -- "1" Administrador: té
+Usuari "1" -- "1" Compte: té
+Administrador "1" -- "*" EstatCompte: s'encarrega
 
 @enduml
