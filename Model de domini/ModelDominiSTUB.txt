@@ -70,6 +70,10 @@ object Compte
 object EstatCompte
 object Activa
 object NoActiva
+object CercaUnaSèrie
+object ValoracióUsuaris
+object NomSèrie
+object Subscripció
 
 SeriesTimeUB "1" *-- "1" Catàleg :contè
 Catàleg "1" *-- "*" Sèries :contè
@@ -94,6 +98,10 @@ NoVisualitzat <|- Seleccionables
 Compte <|-- EstatCompte
 EstatCompte <|-- Activa
 EstatCompte <|-- NoActiva
+CercaUnaSèrie <|-- ValoracióUsuaris
+CercaUnaSèrie <|-- NomSèrie
+CercaUnaSèrie <|-- Subscripció
+
 
 Sèries "1" -- "*" Productora :té
 Sèries "1" -- "*" ProtagonistesPrincipals :té
@@ -108,5 +116,7 @@ Visualitzat "1" -- "1" ValoracióUsuari: consta de
 SeriesTimeUB "1" -- "1" Administrador: té
 Usuari "1" -- "1" Compte: té
 Administrador "1" -- "*" EstatCompte: s'encarrega
+Registre "1" -- "1" Compte: obté
+Usuari "1" -- "*" CercaUnaSèrie: realitza
 
 @enduml
