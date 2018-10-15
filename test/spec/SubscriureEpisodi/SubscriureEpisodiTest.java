@@ -1,6 +1,6 @@
 package spec.SubscriureEpisodi;
 
-import test.spec.*;
+import spec.*;
 import classes.SubscriureEpisodi;
 
 import org.concordion.integration.junit4.ConcordionRunner;

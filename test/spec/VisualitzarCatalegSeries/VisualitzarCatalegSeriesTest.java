@@ -1,6 +1,6 @@
 package spec.VisualitzarCatalegSeries;
 
-import test.spec.*;
+import spec.*;
 import classes.VisualitzarCatalegSeries;
 
 import org.concordion.integration.junit4.ConcordionRunner;

@@ -1,6 +1,6 @@
 package spec.ValorarEpisodi;
 
-import test.spec.*;
+import spec.*;
 import classes.ValorarEpisodi;
 
 import org.concordion.integration.junit4.ConcordionRunner;
