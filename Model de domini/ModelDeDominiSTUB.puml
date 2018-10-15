@@ -74,6 +74,7 @@ object CercaUnaSèrie
 object ValoracióUsuaris
 object NomSèrie
 object Subscripció
+object Temàtica
 
 SeriesTimeUB "1" *-- "1" Catàleg :contè
 Catàleg "1" *-- "*" Sèries :contè
@@ -119,5 +120,6 @@ Usuari "1" -- "1" Compte: té
 Administrador "1" -- "*" EstatCompte: s'encarrega
 Registre "1" -- "1" Compte: obté
 Usuari "1" -- "*" CercaUnaSèrie: realitza
+Sèries "1" -- "*" Temàtica: té
 
 @enduml
