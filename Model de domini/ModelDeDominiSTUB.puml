@@ -17,6 +17,9 @@ object Temporada{
     num_episodis
     num_episodis_vistos
 }
+object Visualitzacio{
+    llista_visualitzacions
+}
 object Episodi
 object EspecificacioEpisodi{
     nom
@@ -29,9 +32,6 @@ object EspecificacioEpisodi{
     dispositiu
     personatge_favorit
 }
-object EstatEpisodi
-object Visualitzat
-object NoVisualitzat
 object Persona{
     nom_real
     nacionalitat
@@ -41,8 +41,6 @@ object Usuari{
     password
     data_naixement
 }
-object Registre
-object LogIn
 object Actors
 object Directors
 object ProtagonistesPrincipals{
@@ -66,18 +64,11 @@ Actors <|-- ProtagonistesPrincipals
 EstatSerie <|-- Completada
 EstatSerie <|-- NoCompletada
 EstatSerie <|-- NoDisponible
-EstatEpisodi <|-- Visualitzat
-EstatEpisodi <|-- NoVisualitzat
 
-Series "1" -- "*" Productora :té
+Episodi "*" -- "*" Visualitzacio: té
+Visualitzacio "*" -- "*" Usuari: té
+Series "*" -- "*" Productora :té
 Series "1" -- "*" ProtagonistesPrincipals :té
 Series "1" -- "*" EstatSerie :té
-Episodi "1" -- "1" EstatEpisodi :té
-Episodi "1" -- "1" EspecificacioEpisodi :té
-Usuari "1" -- "1" Registre :realitza
-Usuari "*" -- "*" LogIn :realitza
-Usuari "1" -- "*" Visualitzat : subscriu
-Usuari "1" -- "*" Visualitzat : valora
-Usuari "1" -- "*" NoVisualitzat : visualitza
-Usuari "1" -- "*" NoVisualitzat : marca
+Episodi "1" -- "1" EspecificacioEpisodi: té
 @enduml
