@@ -1,8 +1,6 @@
 package resources;
 
-import controller.Controlador;
-import model.STUBapp;
-import model.Serie;
+import model.STUB;
 
 /**
  * Data manager per StUB. Crea les estructures de dades necessaries
@@ -10,7 +8,7 @@ import model.Serie;
  *
  */
 public class DAO_XML_STUB implements DAO_STUB {
-	STUBapp cat;
+	STUB cat;
 	private String serie;
 	private String temporada;
 	private String admin;
@@ -32,7 +30,7 @@ public class DAO_XML_STUB implements DAO_STUB {
 	 * -------------------------------------------------------------------
 	 */
 
-	public DAO_XML_STUB(String nomFitxer, STUBapp cat) {
+	public DAO_XML_STUB(String nomFitxer, STUB dades) {
 		STUBXMLParser parser = new STUBXMLParser(this);
 		parser.parse(nomFitxer);
 		this.cat = cat;
