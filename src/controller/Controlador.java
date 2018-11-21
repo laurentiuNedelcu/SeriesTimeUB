@@ -1,22 +1,28 @@
 package controller;
 
 import model.STUB;
+import model.Usuari;
 import resources.DAO_XML_STUB;
 
-public class Controlador {// Comunicació vista-model; dos funcionalitats: signIn, logIn -> Facade?
-    private STUB dades;
-    private DAO_XML_STUB dao;
+import java.util.ArrayList;
+
+public class Controlador {
+    STUB dades;
+    DAO_XML_STUB dao;
 
     public Controlador(String nomFitxer){
         dades = new STUB();
         dao = new DAO_XML_STUB(nomFitxer,dades);
     }
 
+    public String getCataleg(){
+        return dades.getCataleg();
+    }
     public void registreUsuari(String nom_real, String nacionalitat, String nickname, String password, String data_naixement){
         dades.getLlistat_usuaris().registrarUsuari(nom_real, nacionalitat, nickname, password, data_naixement);
     }
 
-    public STUB logInUsuari(String nickname, String password){//+/- recuperar/desar Dades de Pro2
-        dades.getLlistat_usuaris().logInUsuari(nickname, password);
+    public Usuari logInUsuari(String nickname, String password){//+/- recuperar/desar Dades de Pro2
+        return dades.getLlistat_usuaris().logInUsuari(nickname, password);
     }
 }

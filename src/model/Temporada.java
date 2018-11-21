@@ -11,10 +11,8 @@ public class Temporada {
         this.numEpisodis = numEpisodis;
         episodis = new ArrayList<Episodi>();
     }
-    public void addEpisodi(Episodi ep){
+    public void addEpisodi(String title, String duration, String idioma, String description, String data){
+        Episodi ep = new Episodi(title, duration, idioma, description, data);
         episodis.add(ep);
-    }
-    public Episodi getEpisodi(int i){
-        return (episodis.get(i));
     }
 }

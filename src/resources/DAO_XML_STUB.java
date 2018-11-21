@@ -1,6 +1,8 @@
 package resources;
 
+import controller.Controlador;
 import model.STUB;
+import model.Serie;
 
 /**
  * Data manager per StUB. Crea les estructures de dades necessaries
@@ -8,7 +10,7 @@ import model.STUB;
  *
  */
 public class DAO_XML_STUB implements DAO_STUB {
-	STUB cat;
+	STUB dades;
 	private String serie;
 	private String temporada;
 	private String admin;
@@ -31,9 +33,9 @@ public class DAO_XML_STUB implements DAO_STUB {
 	 */
 
 	public DAO_XML_STUB(String nomFitxer, STUB dades) {
-		STUBXMLParser parser = new STUBXMLParser(this);
+        this.dades = dades;
+	    STUBXMLParser parser = new STUBXMLParser(this);
 		parser.parse(nomFitxer);
-		this.cat = cat;
 	}
 	/**
 	 * Obté les dades del fitxer XML passat per paràmetre
@@ -54,7 +56,7 @@ public class DAO_XML_STUB implements DAO_STUB {
 	 */
 
 	public void loadSerie(String id, String title, String desc) {
-		cat.addSerie(title,desc);
+		dades.addSerie(id, title,desc);
 
 	}
 
@@ -72,8 +74,7 @@ public class DAO_XML_STUB implements DAO_STUB {
 		/*  TODO: A partir d'aqui creeu el vostre objecte que contingui la informacio
 		 *  d'una nova temporada.
 		 */
-		cat.addTemp(String idSerie, String numTemporada, String numEpisodis);
-		this.temporada=numTemporada;
+		dades.addTemp(idSerie, numTemporada, numEpisodis);
 
 	}
 
@@ -94,8 +95,7 @@ public class DAO_XML_STUB implements DAO_STUB {
 		/*  TODO: A partir d'aqui creeu el vostre objecte que contingui la informacio
 		 *  d'una nou episodi.
 		 */
-
-		this.episodi=title;
+        dades.addEp(title,duration,idioma,description,data,idSerie,numTemporada);
 
 	}
 

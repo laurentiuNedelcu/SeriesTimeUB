@@ -25,21 +25,17 @@ public class LlistatUsuaris {// Gesitiona el registre i el login dels usuaris
         }
     }
 
-    public void logInUsuari(String nickname, String password) {
-        Scanner scan = new Scanner();
+    public Usuari logInUsuari(String nickname, String password) {
         Iterator<Usuari> it = llistat_usuaris.iterator();
-
-        System.out.println("Introdueix el nom d'usuari: ");
-        nickname = scan.nextLine();
-        System.out.println("Introdueix la contrasenya: ");
-        password = scan.nextLine();
-
+        Usuari currentUser = null;
         while(it.hasNext()){
-            Usuari currentUser = it.next();
+            currentUser = it.next();
             if (currentUser.getNickname().equals(nickname) && currentUser.getPassword().equals(password)) {
-                System.out.println("S'ha iniciat la sessió amb éxit!");
+                break;
             }
+            currentUser = null;
         }
+        return currentUser;
     }
 
     public boolean existentUser(Usuari nouUser){
