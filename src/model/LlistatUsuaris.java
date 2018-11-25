@@ -35,7 +35,7 @@ public class LlistatUsuaris {
         return null;
     }
 
-    public Usuari logInUsuari(String nickname, String password) throws Exception{
+    public Usuari logInUsuari(String nickname, String password){
         Iterator<Usuari> it = llistat_usuaris.iterator();
         Usuari currentUser;
         while(it.hasNext()){
@@ -45,7 +45,10 @@ public class LlistatUsuaris {
                 return currentUser;
             }
         }
-        throw new Exception("Error en l'inici de sessió!");
+        //throw new Exception("Error en l'inici de sessió!");
+        System.out.println("Error en l'inici de sessió:\nSi no t'has registrat, siusplau, fes-ho abans d'accedir a l'aplicació!\nComproba que " +
+                "has introduït bé el teu nickame o contrasenya!");
+        return null;
     }
 
     public boolean existentUser(Usuari nouUser){//Mètode per a comprobar si existeix un usuari a partir del nickname

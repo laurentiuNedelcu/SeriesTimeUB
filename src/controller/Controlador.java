@@ -23,7 +23,7 @@ public class Controlador {
         dades.getLlistat_usuaris().registrarUsuari(nom_real, nacionalitat, nickname, password, data_naixement);
     }
 
-    public Usuari logInUsuari(String nickname, String password) throws Exception {//+/- recuperar/desar Dades de Pro2
+    public Usuari logInUsuari(String nickname, String password){//+/- recuperar/desar Dades de Pro2
         return dades.getLlistat_usuaris().logInUsuari(nickname, password);
     }
 }
