@@ -22,7 +22,7 @@ import resources.DAO_XML_STUB;
 @RunWith(ConcordionRunner.class)
 
 public class STUBDataManager {
-/*
+    /*
     private DAO_XML_STUB dataManager;
 
     @BeforeExample
@@ -77,6 +77,5 @@ public class STUBDataManager {
         return dataManager.getValoracio();
 
     }
-
 */
 }

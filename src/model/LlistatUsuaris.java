@@ -4,7 +4,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Scanner;
 
-public class LlistatUsuaris {// Gesitiona el registre i el login dels usuaris
+//LlistatUsuaris ha d'emmagatzemar la informació de l'aplicació de tots els usuaris
+public class LlistatUsuaris {
 
     private ArrayList<Usuari> llistat_usuaris;
 
@@ -16,29 +17,33 @@ public class LlistatUsuaris {// Gesitiona el registre i el login dels usuaris
         return this.llistat_usuaris;
     }
 
-    public void registrarUsuari(String nom_real, String nacionalitat, String nickname, String password, String data_naixement) {
+    public void registrarUsuari(String nom_real, String nacionalitat, String nickname, String password, String data_naixement) throws Exception{
         Usuari nouUsuari = new Usuari(nom_real, nacionalitat, nickname, password, data_naixement);
-        if(existentUser(nouUsuari)){
-            System.out.println("Aquest nom d'usuari ja existeix, siusplau escogeix un altre.");
-        }else {
+        if(existentUser(nouUsuari)) {
+            throw new Exception("Aquest nom d'usuari ja existeix!");
+        }
+        if(!safePassword(nouUsuari)){
+            throw new Exception("La contrassenya es massa insegura!");
+        } else {
             llistat_usuaris.add(nouUsuari);
+            System.out.println("Usuari afegit amb éxit!");
         }
     }
 
-    public Usuari logInUsuari(String nickname, String password) {
+    public Usuari logInUsuari(String nickname, String password) throws Exception{
         Iterator<Usuari> it = llistat_usuaris.iterator();
-        Usuari currentUser = null;
+        Usuari currentUser;
         while(it.hasNext()){
             currentUser = it.next();
             if (currentUser.getNickname().equals(nickname) && currentUser.getPassword().equals(password)) {
-                break;
+                System.out.println(currentUser.toString());
+                return currentUser;
             }
-            currentUser = null;
         }
-        return currentUser;
+        throw new Exception("Error en l'inici de sessió!");
     }
 
-    public boolean existentUser(Usuari nouUser){
+    public boolean existentUser(Usuari nouUser){//Mètode per a comprobar si existeix un usuari a partir del nickname
         Iterator<Usuari> it = llistat_usuaris.iterator();
         while (it.hasNext()){
             Usuari user = it.next();
@@ -47,5 +52,21 @@ public class LlistatUsuaris {// Gesitiona el registre i el login dels usuaris
             }
         }
         return false;
+    }
+
+    public boolean safePassword(Usuari u){
+        //Necesitamos comprobar que la contraseña escogida es segura
+        String nickname, name, birthDate, password;
+        int minimumLength = 8;
+
+        nickname = u.getNickname();
+        name = u.getNom_real();
+        birthDate = u.getData_naixement();
+        password = u.getPassword();
+
+        if(nickname.equals(password) || name.equals(password) || birthDate.equals(password) || password.length()<minimumLength) {
+            return false;
+        }
+        return true;
     }
 }

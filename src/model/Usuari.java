@@ -38,4 +38,12 @@ public class Usuari extends Persona{ //Dades d'un usuari -> classe filla
     public void setData_naixement(String data_naixement){
         this.data_naixement = data_naixement;
     }
+
+    @Override
+    public String toString(){
+        String informacio;
+        informacio = "Nom real de l'usuari: " + getNom_real() + "\n" + "Nacionalitat: " + getNacionalitat() + "\n" + "Data de naixement: " + getData_naixement() + "\n" + "Nom d'usuari: " +
+                "\n" + "Contrasenya: " + getPassword();
+        return informacio;
+    }
 }
