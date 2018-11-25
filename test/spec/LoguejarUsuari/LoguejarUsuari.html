@@ -1,0 +1,36 @@
+<html xmlns:c="http://www.concordion.org/2007/concordion">
+<head>
+    <title>Test d'acceptació de loguejar un usuari</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<h1>US 2.Test d'acceptació de loguejar un usuari</h1>
+<p>
+    <b>Com</b> a client/usuari registrat <b>Vull</b> accedir a la meva sessió d'STUB <b>Per</b> poder gaudir dels serveis de l'aplicació STUB.
+</p>
+<div c:example="before">
+    <h3>Criteri d'acceptació 1</h3>
+    <p>
+        <b>En cas de que</b> l'usuari estigui registrat <b>quan</b> estigui loguejant-se <b>el sistema</b> deixarà accedir a l'usuari a la seva sessió.
+    </p>
+
+    <span c:assert-equals="logInUsuari()">Nom real de l'usuari: None Nacionalitat: None Data de naixement: None Nom d'usuari: Nickname Contrasenya: Password</span> Should be
+
+    <h3>Criteri d'acceptació 2</h3>
+    <p>
+        <b>En cas de que</b> el client no estigui registrat <b>quan</b> estigui loguejant-se <b>el sistema</b> respondrà amb un missatge d'error.
+    </p>
+
+    <span c:assert-equals="logInUsuari()">null</span> Should be
+
+    <h3>Criteri d'acceptació 3</h3>
+    <p>
+        <b>En cas de que</b> l'usuari estigui registrat però la contrasenya o el nickname no coincideixin <b>quan</b> estigui loguejant-se <b>el sistema</b> respondrà amb un missatge d'error.
+    </p>
+
+    <span c:assert-equals="logInUsuari()">null</span> Should be
+
+</div>
+
+</body>
+</html>
