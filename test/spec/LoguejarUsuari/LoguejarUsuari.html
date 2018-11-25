@@ -14,22 +14,26 @@
         <b>En cas de que</b> l'usuari estigui registrat <b>quan</b> estigui loguejant-se <b>el sistema</b> deixarà accedir a l'usuari a la seva sessió.
     </p>
 
-    <span c:assert-equals="logInUsuari()">Nom real de l'usuari: None Nacionalitat: None Data de naixement: None Nom d'usuari: Nickname Contrasenya: Password</span> Should be
-
+    <div c:example="Cas d'èxit">
+        <span c:assert-equals="logInUsuari()">true</span> Should be
+    </div>
     <h3>Criteri d'acceptació 2</h3>
     <p>
         <b>En cas de que</b> el client no estigui registrat <b>quan</b> estigui loguejant-se <b>el sistema</b> respondrà amb un missatge d'error.
     </p>
 
-    <span c:assert-equals="logInUsuari()">null</span> Should be
+    <div c:example="Usuari no registrat">
+    <span c:assert-equals="logInUsuariNoRegistrat()">true</span> Should be
+    </div>
 
     <h3>Criteri d'acceptació 3</h3>
     <p>
         <b>En cas de que</b> l'usuari estigui registrat però la contrasenya o el nickname no coincideixin <b>quan</b> estigui loguejant-se <b>el sistema</b> respondrà amb un missatge d'error.
     </p>
 
-    <span c:assert-equals="logInUsuari()">null</span> Should be
-
+    <div c:example="Contrasenya incorrecte">
+    <span c:assert-equals="logInUsuariContrasenyaIncorrecta()">false</span> Should be
+    </div>
 </div>
 
 </body>
