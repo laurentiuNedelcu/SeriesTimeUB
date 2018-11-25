@@ -19,9 +19,7 @@ public class Usuari extends Persona{ //Dades d'un usuari -> classe filla
         this.data_naixement = data_naixement;
     }
 
-    public String getNickname(){
-        return this.nickname;
-    }
+    public String getNickname(){return this.nickname;}
     public String getPassword(){
         return this.password;
     }
@@ -42,8 +40,22 @@ public class Usuari extends Persona{ //Dades d'un usuari -> classe filla
     @Override
     public String toString(){
         String informacio;
-        informacio = "Nom real de l'usuari: " + getNom_real() + "\n" + "Nacionalitat: " + getNacionalitat() + "\n" + "Data de naixement: " + getData_naixement() + "\n" + "Nom d'usuari: " +
-                "\n" + "Contrasenya: " + getPassword();
+        informacio = "Nom real de l'usuari: " + getNom_real() + "\n" + "Nacionalitat: " + getNacionalitat() + "\n" + "Data de naixement: " + getData_naixement() + "\n" + "Nom d'usuari: " + getNickname()
+                +"\n" + "Contrasenya: " + getPassword();
         return informacio;
+    }
+
+    @Override
+    public boolean equals(Object obj){
+        Usuari nou = null;
+        if (obj == null)
+            return false;
+        if(obj instanceof Usuari){
+            nou = (Usuari) obj;
+            if (this.getNickname()==nou.getNickname())
+                    return true;
+            return false;
+        }
+        return false;
     }
 }

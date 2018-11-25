@@ -15,4 +15,8 @@ public class Temporada {
         Episodi ep = new Episodi(title, duration, idioma, description, data);
         episodis.add(ep);
     }
+
+    public int subscriureEpisodi(Usuari us, int ep){
+        return episodis.get(ep-1).subscriureUsuari(us);
+    }
 }

@@ -9,37 +9,41 @@ import org.junit.runner.RunWith;
 
 @RunWith(ConcordionRunner.class)
 public class RegistrarUsuari {
-
     private Controlador controller;
-    private Usuari usuariExistent;
+    private Usuari nouUsuari;
 
     @BeforeExample
     public void init(){
         controller = new Controlador("src/resources/STUB.xml");
-        usuariExistent = new Usuari("Edward Elric","Xerxes",
+        nouUsuari = new Usuari("Edward Elric","Xerxes", 
                 "Alquimista de Acero", "LoveAlphonse", "00/00/1899");
     }
 
     @Test
-    public void registreUsuari() {
-        controller.registreUsuari("Alphonse Elrick", "Xerxes", "Alquimista de Acero", "LoveEdward", "00/00/1900");
-    }
-/*
-    @Test
-    public void registreUsuari(){
-        try {
-            controller.registreUsuari("Alphonse Elrick", "Xerxes", "Alquimista de Acero", "Alquimista de Acero", "00/00/1900");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    public boolean registreUsuari() {
+        Usuari registrat = controller.registreUsuari("Edward Elric", "Xerxes", "Alquimista de Acero", "LoveAlphonse", "00/00/1899");
+        if(nouUsuari.equals(registrat))
+            return true;
+        System.out.println("hi");
+        return false;
     }
 
     @Test
-    public void registreUsuari(){
-        try {
-            controller.registreUsuari("Alphonse Elrick", "Xerxes", "Armadura Andante", "LoveEdward", "00/00/1900");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }*/
+    public boolean usuariJaRegistrat(){
+        controller.registreUsuari("Edward Elric", "Xerxes", "Alquimista de Acero", "LoveAlphonse", "00/00/1899");
+        if(nouUsuari.equals(controller.registreUsuari("Edward Elric", "Xerxes", "Alquimista de Acero", "LoveAlphonse", "00/00/1899")))
+            return true;
+        return false;
+    }
+
+    @Test
+    public boolean contrasenyaNoValida(){
+        System.out.println("holi");
+        Usuari us = new Usuari("Edward Elric", "Xerxes", "Alquimista de Acero", "1234", "00/00/1899");
+        Usuari registrat = controller.registreUsuari("Edward","Xerxes","Edi","1234","00/02/14");
+
+        if(us.equals(registrat))
+            return true;
+        return false;
+    }
 }

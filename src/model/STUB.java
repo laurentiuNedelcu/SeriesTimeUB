@@ -28,4 +28,8 @@ public class STUB {//Cal persistencia de dades? -> serializable?
     public String getCataleg() {
         return cat.getCataleg();
     }
+
+    public int subscriureEpisodi(int ep, int temp, String ser){
+        return cat.subscriureEpisodi(llistat_usuaris.getUsuariActual(), ep, temp, ser);
+    }
 }

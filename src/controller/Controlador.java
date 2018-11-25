@@ -19,11 +19,16 @@ public class Controlador {
         return dades.getCataleg();
     }
 
-    public void registreUsuari(String nom_real, String nacionalitat, String nickname, String password, String data_naixement) {
-        dades.getLlistat_usuaris().registrarUsuari(nom_real, nacionalitat, nickname, password, data_naixement);
+    public Usuari registreUsuari(String nom_real, String nacionalitat, String nickname, String password, String data_naixement){
+        return dades.getLlistat_usuaris().registrarUsuari(nom_real, nacionalitat, nickname, password, data_naixement);
     }
 
-    public Usuari logInUsuari(String nickname, String password) throws Exception {//+/- recuperar/desar Dades de Pro2
+    public Usuari logInUsuari(String nickname, String password) {//+/- recuperar/desar Dades de Pro2
         return dades.getLlistat_usuaris().logInUsuari(nickname, password);
+
     }
+    public int subscriureEpisodi(int ep, int temp, String ser){
+        return dades.subscriureEpisodi(ep, temp, ser);
+    }
+
 }

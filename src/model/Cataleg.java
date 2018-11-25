@@ -35,6 +35,17 @@ public class Cataleg {
         }
     }
 
+    public int subscriureEpisodi(Usuari us, int ep, int temp, String ser){
+        Iterator<Serie> it = series.iterator();
+        while(it.hasNext()){
+            Serie se = it.next();
+            if(se.getId().equals(ser)){
+                return se.subscriureEpisodi(us, ep, temp);
+            };
+        }
+        return 1;
+    }
+
     public String getCataleg(){
         String s = "";
         Iterator<Serie> it = series.iterator();

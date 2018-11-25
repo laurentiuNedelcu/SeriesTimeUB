@@ -8,6 +8,7 @@ import java.util.Scanner;
 public class LlistatUsuaris {
 
     private ArrayList<Usuari> llistat_usuaris;
+    private Usuari usuariActual;
 
     public LlistatUsuaris(){
         this.llistat_usuaris = new ArrayList<>();
@@ -17,35 +18,28 @@ public class LlistatUsuaris {
         return this.llistat_usuaris;
     }
 
-    public String registrarUsuari(String nom_real, String nacionalitat, String nickname, String password, String data_naixement){
+    public Usuari registrarUsuari(String nom_real, String nacionalitat, String nickname, String password, String data_naixement){
         Usuari nouUsuari = new Usuari(nom_real, nacionalitat, nickname, password, data_naixement);
-        if(existentUser(nouUsuari)) {
-            //throw new Exception("Aquest nom d'usuari ja existeix!");
-            return "Aquest nom d'usuari ja existeix!";
-        }
-        if(!safePassword(nouUsuari)){
-            //throw new Exception("La contrassenya es massa insegura!");
-            return "La contrassenya es massa insegura!";
-        }
-        if(!existentUser(nouUsuari)==true && safePassword(nouUsuari)==true){
+        if(existentUser(nouUsuari) || !safePassword(nouUsuari)) {
+            return null;
+
+        } else {
             llistat_usuaris.add(nouUsuari);
-            //System.out.println("Benvolgut, " + nickname + " has estat afegit amb éxit!");
-            return "Benvolgut, " + nickname + " has estat afegit amb éxit!";
+            return nouUsuari;
         }
-        return null;
     }
 
-    public Usuari logInUsuari(String nickname, String password) throws Exception{
+    public Usuari logInUsuari(String nickname, String password){
         Iterator<Usuari> it = llistat_usuaris.iterator();
         Usuari currentUser;
         while(it.hasNext()){
             currentUser = it.next();
             if (currentUser.getNickname().equals(nickname) && currentUser.getPassword().equals(password)) {
-                System.out.println(currentUser.toString());
+                usuariActual = currentUser;
                 return currentUser;
             }
         }
-        throw new Exception("Error en l'inici de sessió!");
+        return null;
     }
 
     public boolean existentUser(Usuari nouUser){//Mètode per a comprobar si existeix un usuari a partir del nickname
@@ -73,5 +67,9 @@ public class LlistatUsuaris {
             return false;
         }
         return true;
+    }
+
+    public Usuari getUsuariActual() {
+        return usuariActual;
     }
 }

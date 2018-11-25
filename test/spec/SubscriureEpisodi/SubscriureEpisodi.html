@@ -2,6 +2,7 @@
 
 <head>
     <title>Subscriure Episodi</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 </head>
 
 <body>
@@ -15,18 +16,22 @@
 <p>PER A poder valorar-lo</p>
 </p>
 
-    <div c:example="EpisodiJaSubscrit" c.status="Unimplemented">
-        <h3>T5.1 Flux alternatiu 1</h3>
+<div c:example="before">
+    <div c:example="Cas d'èxit">
+        <span c:assert-equals="subscriureEpisodi()">0</span> Should be
+        <h3>T5.1 Cas d'èxit</h3>
+    </div>
+
+    <div c:example="EpisodiJaSubscrit">
+        <span c:assert-equals="episodiJaSubscrit()">1</span>
+        <h3>T5.2 Flux alternatiu 1</h3>
     </div>
 
     <div c:example="L'usuari vol valorar l'episodi" c:status="Unimplemented">
-        <h3>T5.2 Flux alternatiu 2 (s'inicia el cas d'us 7)</h3>
+        <h3>T5.3 Flux alternatiu 2 (s'inicia el cas d'us 7)</h3>
     </div>
 
-    <div c:example="Cas d'èxit" c:status="Unimplemented">
-        <h3>T5.3 Cas d'èxit</h3>
-    </div>
-
+</div>
 </body>
 
 </html>

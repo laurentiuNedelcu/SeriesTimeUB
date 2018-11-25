@@ -3,8 +3,8 @@ package model;
 import java.util.ArrayList;
 
 public class Serie {
-    String id, title, descripcio;
-    ArrayList<Temporada> temporades;
+    private String id, title, descripcio;
+    private ArrayList<Temporada> temporades;
 
     public Serie(String id, String title, String descricpio){
         this.id = id;
@@ -34,5 +34,9 @@ public class Serie {
         int tempN = Integer.parseInt(numTemporada)-1;
         Temporada te = temporades.get(tempN);
         te.addEpisodi(title, duration, idioma, description, data);
+    }
+
+    public int subscriureEpisodi(Usuari us, int ep, int temp){
+        return temporades.get(temp-1).subscriureEpisodi(us,ep);
     }
 }
