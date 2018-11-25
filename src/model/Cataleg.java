@@ -25,6 +25,16 @@ public class Cataleg {
         }
     }
 
+    public void addEp(String title, String duration, String idioma, String description, String data, String idSerie, String numTemporada) {
+        Iterator<Serie> it = series.iterator();
+        while(it.hasNext()){
+            Serie se = it.next();
+            if(se.getId().equals(idSerie)){
+                se.addEp(title, duration, idioma, description, data, numTemporada);
+            };
+        }
+    }
+
     public String getCataleg(){
         String s = "";
         Iterator<Serie> it = series.iterator();
@@ -34,15 +44,5 @@ public class Cataleg {
             s += " ";
         }
         return s;
-    }
-
-    public void addEp(String title, String duration, String idioma, String description, String data, String idSerie, String numTemporada) {
-        Iterator<Serie> it = series.iterator();
-        while(it.hasNext()){
-            Serie se = it.next();
-            if(se.getId().equals(idSerie)){
-                se.addEp(title, duration, idioma, description, data, numTemporada);
-            };
-        }
     }
 }

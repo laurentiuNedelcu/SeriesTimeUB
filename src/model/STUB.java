@@ -1,8 +1,5 @@
 package model;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-
 public class STUB {//Cal persistencia de dades? -> serializable?
     private Cataleg cat;//Cambio QUIM
     private LlistatUsuaris llistat_usuaris;

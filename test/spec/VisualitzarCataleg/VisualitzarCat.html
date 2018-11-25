@@ -1,18 +1,19 @@
-<html xmlns:c="http://www.concordion.org/2007/concordion">
+<html xmlns:c="http://www.concordion.org/2007/concordion" xmlns:concordion="http://www.w3.org/1999/xhtml">
 <head>
-    <title>VisualitzarCatalegSeries</title>
+    <title>VisualitzarCat</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 </head>
 <body>
-
-<h1>UC3 - Visualitzar Cataleg de Series</h1>
-
+<h1>VisualitzarCat</h1>
 <p>
-<p>US7</p>
-<p>COM  a usuari enregistrat i logejat</p>
-<p>VULL veure el cataleg de series</p>
-<p>PER A per poder subscriurem i valorar</p>
+    Description
 </p>
+
+<div c:example="before">
+    <div c:example="Visualitzar cataleg senser">
+        <span c:assert-equals="getCataleg()">Breaking Bad Mr Robot Game of Thrones Penny Dreadful Black Mirror Sons of Anarchy Stranger Things Misfits Peaky Blinders Walking Dead </span> Should be
+    <h3>Examples</h3>
+    </div>
 
     <div c:example="Veure sèries no començades" c:status="Unimplemented">
         <h3>T3.1 flux alternatiu</h3>
@@ -25,6 +26,7 @@
     <div c:example="Veure sèries finalitzades" c:status="Unimplemented">
         <h3>T3.1 flux alternatiu</h3>
     </div>
+</div>
 
 </body>
 </html>
