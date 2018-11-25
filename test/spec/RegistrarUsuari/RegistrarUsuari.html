@@ -8,25 +8,31 @@
 <p>
     <b>Com</b> a client no registrat <b>Vull</b> passar un registre <b>Per</b> donar-me d'alta a l'aplicació STUB i poder gaudir dels seus serveis.
 </p>
+
 <div c:example="RegistrarUsuari">
     <h3>Criteri d'acceptació 1</h3>
     <p>
         <b>En cas de que</b> el client ja estigui registrat <b>quan</b> estigui registrant-se <b>el sistema</b> tirarà una excepció conforme el nom d'usuari ja existeix.
     </p>
 
-    <span c:assertEquals="registreUsuari()"> </span>.
+
 
     <h3>Criteri d'acceptació 2</h3>
     <p>
         <b>En cas de que</b> el client tingui una contrassenya igual al nickname, nom, data de naixement o sigui menor de 8 caracters<b>quan</b> estigui registrant-se <b>el sistema</b> tirarà una excepció conforme la contrassenya es massa insegura.
     </p>
 
+
+
     <h3>Criteri d'acceptació 3</h3>
     <p>
         <b>En cas de que</b> el client no estigui registrat <b>quan</b> estigui registrant-se <b>el sistema</b> donarà d'alta el nou usuari.
     </p>
 
+    <span c:assert-equals="registreUsuari()">"Benvolgut, Alquimista de Acero has estat afegit amb éxit!"</span>
+
 </div>
+
 
 </body>
 </html>

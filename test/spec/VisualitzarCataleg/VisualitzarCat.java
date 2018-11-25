@@ -12,6 +12,7 @@ import java.util.ArrayList;
 public class VisualitzarCat {
 
     private Controlador cont;
+
     @BeforeExample
     public void init(){
         cont = new Controlador("src/resources/STUB.xml");

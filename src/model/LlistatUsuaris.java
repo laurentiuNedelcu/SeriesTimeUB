@@ -17,17 +17,22 @@ public class LlistatUsuaris {
         return this.llistat_usuaris;
     }
 
-    public void registrarUsuari(String nom_real, String nacionalitat, String nickname, String password, String data_naixement) throws Exception{
+    public String registrarUsuari(String nom_real, String nacionalitat, String nickname, String password, String data_naixement){
         Usuari nouUsuari = new Usuari(nom_real, nacionalitat, nickname, password, data_naixement);
         if(existentUser(nouUsuari)) {
-            throw new Exception("Aquest nom d'usuari ja existeix!");
+            //throw new Exception("Aquest nom d'usuari ja existeix!");
+            return "Aquest nom d'usuari ja existeix!";
         }
         if(!safePassword(nouUsuari)){
-            throw new Exception("La contrassenya es massa insegura!");
-        } else {
-            llistat_usuaris.add(nouUsuari);
-            System.out.println("Usuari afegit amb éxit!");
+            //throw new Exception("La contrassenya es massa insegura!");
+            return "La contrassenya es massa insegura!";
         }
+        if(!existentUser(nouUsuari)==true && safePassword(nouUsuari)==true){
+            llistat_usuaris.add(nouUsuari);
+            //System.out.println("Benvolgut, " + nickname + " has estat afegit amb éxit!");
+            return "Benvolgut, " + nickname + " has estat afegit amb éxit!";
+        }
+        return null;
     }
 
     public Usuari logInUsuari(String nickname, String password) throws Exception{

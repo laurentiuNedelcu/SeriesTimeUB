@@ -19,7 +19,7 @@ public class Controlador {
         return dades.getCataleg();
     }
 
-    public void registreUsuari(String nom_real, String nacionalitat, String nickname, String password, String data_naixement) throws Exception {
+    public void registreUsuari(String nom_real, String nacionalitat, String nickname, String password, String data_naixement) {
         dades.getLlistat_usuaris().registrarUsuari(nom_real, nacionalitat, nickname, password, data_naixement);
     }
 

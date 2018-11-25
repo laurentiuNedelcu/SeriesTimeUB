@@ -9,18 +9,37 @@ import org.junit.runner.RunWith;
 
 @RunWith(ConcordionRunner.class)
 public class RegistrarUsuari {
+
     private Controlador controller;
-    private Usuari nouUsuari;
+    private Usuari usuariExistent;
 
     @BeforeExample
     public void init(){
         controller = new Controlador("src/resources/STUB.xml");
-        nouUsuari = new Usuari("Edward Elric","Xerxes", 
+        usuariExistent = new Usuari("Edward Elric","Xerxes",
                 "Alquimista de Acero", "LoveAlphonse", "00/00/1899");
     }
 
     @Test
     public void registreUsuari() {
-        return controller.registreUsuari();
+        controller.registreUsuari("Alphonse Elrick", "Xerxes", "Alquimista de Acero", "LoveEdward", "00/00/1900");
     }
+/*
+    @Test
+    public void registreUsuari(){
+        try {
+            controller.registreUsuari("Alphonse Elrick", "Xerxes", "Alquimista de Acero", "Alquimista de Acero", "00/00/1900");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void registreUsuari(){
+        try {
+            controller.registreUsuari("Alphonse Elrick", "Xerxes", "Armadura Andante", "LoveEdward", "00/00/1900");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }*/
 }
