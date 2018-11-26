@@ -40,6 +40,14 @@ public class Serie {
         return temporades.get(temp-1).visualitzarEpisodi(us,ep);
     }
 
+    public boolean serieComencada(Usuari us){
+        return temporades.get(0).estaComencada(us);
+    }
+
+    public boolean serieAcabada(Usuari us){
+        return temporades.get(temporades.size()-1).estaAcabada(us);
+    }
+
     public int subscriureEpisodi(Usuari us, int ep, int temp){
         return temporades.get(temp-1).subscriureEpisodi(us,ep);
     }

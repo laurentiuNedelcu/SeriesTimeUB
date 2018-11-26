@@ -18,7 +18,7 @@ public class LlistatUsuaris {
         return this.llistat_usuaris;
     }
 
-    public Usuari registrarUsuari(int id, String nom_real, int dni, String nacionalitat, String nickname, String password, String data_naixement, String adress, boolean vip){
+    public Usuari registrarUsuari(String id, String nom_real, String dni, String nacionalitat, String nickname, String password, String data_naixement, String adress, boolean vip){
         Usuari nouUsuari = new Usuari(id, nom_real, dni, nacionalitat, nickname, password, data_naixement, adress, vip);
         if(existentUser(nouUsuari) || !safePassword(nouUsuari)) {
             return null;
@@ -71,5 +71,17 @@ public class LlistatUsuaris {
 
     public Usuari getUsuariActual() {
         return usuariActual;
+    }
+
+    public Usuari getUsuari(String us){
+        Iterator<Usuari> it = llistat_usuaris.iterator();
+        Usuari user = null;
+        while (it.hasNext()){
+            user = it.next();
+            if (user.getNickname().equals(us)) {
+                return user;
+            }
+        }
+        return user;
     }
 }

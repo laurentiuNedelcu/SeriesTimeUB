@@ -1,9 +1,9 @@
 package model;
 
 public class Usuari extends Persona{
-    private String nickname, password, data_naixement, adress;
-    private int dni;
+    private String nickname, password, data_naixement, adress, dni;
     private boolean vip;
+
 
     public Usuari(){
         super();
@@ -11,11 +11,11 @@ public class Usuari extends Persona{
         this.password = "None";
         this.data_naixement = "None";
         this.adress = "None";
-        this.dni = 0;
+        this.dni = "None";
         this.vip = false;
     }
 
-    public Usuari(int id, String nom_real, int dni, String nacionalitat, String nickname, String password, String data_naixement, String adress, boolean vip){
+    public Usuari(String id, String nom_real, String dni, String nacionalitat, String nickname, String password, String data_naixement, String adress, boolean vip){
         super(id, nom_real,nacionalitat);
         this.nickname = nickname;
         this.password = password;
@@ -33,7 +33,7 @@ public class Usuari extends Persona{
         return this.data_naixement;
     }
     public String getAdress(){return this.adress;}
-    public int getDni(){return this.dni;}
+    public String getDni(){return this.dni;}
     public boolean getVip(){return this.vip;}
 
     public void setNickname(String nickname){
@@ -46,7 +46,7 @@ public class Usuari extends Persona{
         this.data_naixement = data_naixement;
     }
     public void setAdress(String adress){ this.adress = adress;}
-    public void setDni(int dni){this.dni = dni;}
+    public void setDni(String dni){this.dni = dni;}
     public void setVip(boolean vip){this.vip = vip;}
 
     @Override

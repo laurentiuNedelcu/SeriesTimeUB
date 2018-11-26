@@ -147,7 +147,10 @@ public class DAO_XML_STUB implements DAO_STUB {
 
 		/* TODO: A partir d'aqui creeu la valoracio
 		 */
-		this.valoracio=puntuacio;
+		int ep = Integer.parseInt(episodi);
+		int temp = Integer.parseInt(numTemporada);
+		int punt = Integer.parseInt(puntuacio);
+		dades.valorarEpisodi(client,punt,data,ep,temp,idSerie);
 	}
 
 	/**
@@ -163,7 +166,7 @@ public class DAO_XML_STUB implements DAO_STUB {
 		/* TODO: Creeu aqui el vostre admin
 		 */
 
-		this.admin=usuari;
+		dades.registrarUsuari(id,nom,"","",usuari,password,"","",true);
 	}
 
 	/**
@@ -183,20 +186,25 @@ public class DAO_XML_STUB implements DAO_STUB {
 		/* TODO: Creeu aqui el vostre client
 		 */
 
-		this.client=usuari;
+		dades.registrarUsuari(id,nom,dni,adreca,usuari,password,"None","None",false);
 	}
+
+
 
 	/**
 	 * Crea un nova subscripció a partir de la informació obtinguda del fitxer XML
 	 *  @param id de la subscripció
 	 * @param numTemporada
 	 */
+	@Override
 	public void loadSubscripcio(String id, String client, String serie, String numTemporada, String episodi) {
 
 		/* TODO: Creeu aqui la vostra subscripció
 		 */
 
-		this.subscripcio=episodi;
+		int ep = Integer.parseInt(episodi);
+		int temp = Integer.parseInt(numTemporada);
+		dades.subscriureEpisodi(client,ep,temp,serie);
 	}
 
 	/**
@@ -210,7 +218,10 @@ public class DAO_XML_STUB implements DAO_STUB {
 		/* TODO: Creeu aqui la vostra subscripció
 		 */
 
-		this.visualitzacio=data;
+		int ep = Integer.parseInt(episodi);
+		int temp = Integer.parseInt(numTemporada);
+
+		dades.visualitzarEpisodi(client,ep,temp,serie);
 	}
 
 	public String getSerie() {
@@ -252,5 +263,4 @@ public class DAO_XML_STUB implements DAO_STUB {
 	public String getVisualitzacio() {
 		return visualitzacio;
 	}
-
 }

@@ -79,4 +79,43 @@ public class Cataleg {
         }
         return s;
     }
+
+    public String getLlistatSeriesComencades(Usuari us){
+        String s = "";
+        Iterator<Serie> it = series.iterator();
+        while(it.hasNext()){
+            Serie se = it.next();
+            if(se.serieComencada(us) && !se.serieAcabada(us)) {
+                s += se.getTitle();
+                s += " ";
+            }
+        }
+        return s;
+    }
+
+    public String getLlistatSeriesAcabades(Usuari us){
+        String s = "";
+        Iterator<Serie> it = series.iterator();
+        while(it.hasNext()){
+            Serie se = it.next();
+            if(se.serieAcabada(us)) {
+                s += se.getTitle();
+                s += " ";
+            }
+        }
+        return s;
+    }
+
+    public String getLlistatSeriesNoComencades(Usuari us){
+        String s = "";
+        Iterator<Serie> it = series.iterator();
+        while(it.hasNext()){
+            Serie se = it.next();
+            if(!se.serieAcabada(us)&&!se.serieComencada(us)) {
+                s += se.getTitle();
+                s += " ";
+            }
+        }
+        return s;
+    }
 }

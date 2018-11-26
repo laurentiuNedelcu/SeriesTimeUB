@@ -9,7 +9,7 @@ public class Administrador extends Persona {
         this.password = "None";
     }
 
-    public Administrador (int id, String nom_real, String nacionalitat, String nickname, String password){
+    public Administrador (String id, String nom_real, String nacionalitat, String nickname, String password){
         super(id,nom_real,nacionalitat);
         this.nickname = nickname;
         this.password = password;

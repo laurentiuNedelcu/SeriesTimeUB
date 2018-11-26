@@ -1086,7 +1086,7 @@
 			<dni>11111111A</dni>
 			<adreca>Madrigal 8, 00001, Barcelona</adreca>
 			<usuari>ajaleo</usuari>
-			<password>ajaleo</password>
+			<password>ajaleo123</password>
 		</client>
 		<client id="c2" vip="false">
 			<nom>Lola Mento</nom>

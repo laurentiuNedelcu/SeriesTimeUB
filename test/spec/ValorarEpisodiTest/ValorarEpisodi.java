@@ -13,7 +13,7 @@ public class ValorarEpisodi {
     @BeforeExample
     public void init(){
         cont = new Controlador("src/resources/STUB.xml");
-        cont.registreUsuari(1,"Roberto", 1111111,"spain", "Robert", "12345678", "03/02/99","Unknown", true);
+        cont.registreUsuari("c20","Roberto", "1111111","spain", "Robert", "12345678", "03/02/99","Unknown", true);
         cont.logInUsuari("Robert", "12345678");
         cont.subscriureEpisodi(1,1,"bbad");
     }

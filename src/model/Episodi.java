@@ -36,7 +36,9 @@ public class Episodi {
         return data;
     }
 
-    public int subscriureUsuari(Usuari us){ return vist.subscriureUsuari(us); }
+    public int subscriureUsuari(Usuari us){
+        return vist.subscriureUsuari(us);
+    }
 
     public String valorarEpisodi(Usuari us, int puntuacio, String data){
         return valoracions.valorarUnEpisodi(us,puntuacio,data);
@@ -48,5 +50,7 @@ public class Episodi {
         return 0;
     }
 
-
+    public boolean estaVisualitzat (Usuari us){
+        return vist.usuariJaSubscrit(us);
+    }
 }

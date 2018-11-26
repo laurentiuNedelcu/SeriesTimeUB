@@ -254,6 +254,10 @@ public class STUBXMLParser {
 				temporada = valoracio.getAttributes().getNamedItem("temporada").getTextContent();
 				episodi = valoracio.getAttributes().getNamedItem("episodi").getTextContent();
 
+
+				int in = episodi.indexOf('.');
+				episodi = episodi.substring(in+1,episodi.length());
+
 				daoXml.loadValoracio(id,client, serie, temporada, episodi, puntuacio, data);
 			}
 		}
@@ -361,6 +365,9 @@ public class STUBXMLParser {
 				temporada = subscripcio.getAttributes().getNamedItem("temporada").getTextContent();
 				episodi = subscripcio.getAttributes().getNamedItem("episodi").getTextContent();
 
+				int in = episodi.indexOf('.');
+				episodi = episodi.substring(in+1,episodi.length());
+
 				daoXml.loadSubscripcio(id, client, serie, temporada, episodi);
 			}
 		}
@@ -388,6 +395,10 @@ public class STUBXMLParser {
 				temporada = visualitzacio.getAttributes().getNamedItem("temporada").getTextContent();
 				episodi = visualitzacio.getAttributes().getNamedItem("episodi").getTextContent();
 				data = visualitzacio.getAttributes().getNamedItem("data").getTextContent();
+
+
+				int in = episodi.indexOf('.');
+				episodi = episodi.substring(in+1,episodi.length());
 
 				daoXml.loadVisualització(id, client, serie, temporada, episodi, data);
 			}

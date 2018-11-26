@@ -5,7 +5,6 @@ import java.util.ArrayList;
 public class Temporada {
     private String numTemporada, numEpisodis;
     private ArrayList<Episodi> episodis;
-    private boolean vista;
 
     public Temporada(String numTemporada, String numEpisodis){
         this.numTemporada = numTemporada;
@@ -22,6 +21,17 @@ public class Temporada {
         if(ep<=numE)
             return episodis.get(ep-1).visualitzarEpisodi(us);
         return 1;
+    }
+
+    public boolean estaComencada (Usuari us){
+        return episodis.get(0).estaVisualitzat(us);
+    }
+
+    public boolean estaAcabada (Usuari us){
+        int i = episodis.size();
+        if(i==0)
+            return false;
+        return episodis.get(i-1).estaVisualitzat(us);
     }
     public int subscriureEpisodi(Usuari us, int ep){
         return episodis.get(ep-1).subscriureUsuari(us);

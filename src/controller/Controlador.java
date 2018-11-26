@@ -19,7 +19,7 @@ public class Controlador { //Funcionalitats de subscriure Episodi i valorar Epis
         return dades.getCataleg();
     }
 
-    public Usuari registreUsuari(int id, String nom_real, int dni, String nacionalitat, String nickname, String password, String data_naixement, String adress, boolean vip){
+    public Usuari registreUsuari(String id, String nom_real, String dni, String nacionalitat, String nickname, String password, String data_naixement, String adress, boolean vip){
         return facade.registreUsuari(id, nom_real, dni, nacionalitat, nickname, password, data_naixement, adress, vip);
     }
     public Usuari logInUsuari(String nickname, String password) {//+/- recuperar/desar Dades de Pro2
@@ -29,11 +29,25 @@ public class Controlador { //Funcionalitats de subscriure Episodi i valorar Epis
     public int visualitzarEpisodi(int ep, int temp, String ser){
         return dades.visualitzarEpisodi(ep, temp, ser);
     }
+
     public int subscriureEpisodi(int ep, int temp, String ser){
         return dades.subscriureEpisodi(ep, temp, ser);
     }
+
     public String valorarEpisodi(int puntuacio, String data, int ep, int temp, String ser){
         return dades.valorarEpisodi(puntuacio,data,ep,temp,ser);
+    }
+
+    public String llistaDeSeriesComencades(){
+        return dades.getLlistatSeriesComencades();
+    }
+
+    public String llistaDeSeriesAcabades(){
+        return dades.getLlistatSeriesAcabades();
+    }
+
+    public String llistaDeSeriesNoComencades(){
+        return dades.getLlistatSeriesNoComencades();
     }
 
 }

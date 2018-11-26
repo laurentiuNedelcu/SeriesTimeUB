@@ -3,15 +3,15 @@ package model;
 public class Persona { //Superclasse, emmagatzema atributs propis de la persona segons els requisits de STUB
     private String nom_real;
     private String nacionalitat;
-    private int id;
+    private String id;
 
     public Persona(){
         this.nom_real = "None";
         this.nacionalitat = "None";
-        this.id = 0;
+        this.id = "None";
     }
 
-    public Persona(int id, String nom_real, String nacionalitat){
+    public Persona(String id, String nom_real, String nacionalitat){
         this.nom_real = nom_real;
         this.nacionalitat = nacionalitat;
         this.id = id;
@@ -25,7 +25,7 @@ public class Persona { //Superclasse, emmagatzema atributs propis de la persona 
         return this.nacionalitat;
     }
 
-    public int getId(){return this.id;}
+    public String getId(){return this.id;}
 
     public void setNom_real(String nom_real){
          this.nom_real = nom_real;
@@ -35,5 +35,5 @@ public class Persona { //Superclasse, emmagatzema atributs propis de la persona 
         this.nacionalitat = nacionalitat;
     }
 
-    public void setId(int id){this.id = id;}
+    public void setId(String id){this.id = id;}
 }
