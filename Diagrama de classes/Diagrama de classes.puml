@@ -7,12 +7,16 @@ class Controlador{
 -dao: DAO_XML_STUB
 -facade: ControladorAcces
 
++getCataleg()
 +registreUsuari(int id, String nom_real, int dni, String nacionalitat, String nickname,
  String password, String data_naixement, String adress, boolean vip)
 +logInUsuari(String nickname, String password)
 +visualitzarEpisodi(int ep, int temp, String ser)
 +subscriureEpisodi(int ep, int temp, String ser)
-+String valorarEpisodi(int puntuacio, String data, int ep, int temp, String ser)
++valorarEpisodi(int puntuacio, String data, int ep, int temp, String ser)
++llistaDeSeriesComencades()
++llistaDeSeriesAcabades()
++llistaDeSeriesNoComencades()
 }
 
 class ControladorAcces{
@@ -38,9 +42,9 @@ class Cataleg{
 +subscriureEpisodi(Usuari us, int ep, int temp, String ser)
 +valorarEpisodi(Usuari us, int puntuacio, String data, int ep, int temp, String ser)
 +getCataleg()
-}
-
-class CercarSeries{
++getLlistatSeriesComencades(Usuari us)
++getLlistatSeriesAcabades(Usuari us)
++getLlistatSeriesNoComencades(Usuari us)
 }
 
 class Episodi{
@@ -54,9 +58,10 @@ class Episodi{
 +subscriureUsuari(Usuari us)
 +valorarEpisodi(Usuari us, int puntuacio, String data)
 +visualitzarEpisodi(Usuari us)
++estaVisualitzat (Usuari us)
 }
 
-class LListatUsuaris{
+class LlistatUsuaris{
 -llistat_usuaris: ArrayList<Usuari>
 -usuariActual: Usuari
 +registreUsuari(int id, String nom_real, int dni, String nacionalitat, String nickname,
@@ -64,6 +69,7 @@ class LListatUsuaris{
 +logInUsuari(String nickname, String password)
 +existentUser(Usuari nouUser)
 +safePassword(Usuari u)
++getUsuari(String us)
 }
 
 class Persona{
@@ -74,19 +80,146 @@ class Persona{
 
 class Serie{
 -id: String
-}
-class STUB{
-}
-class SubscriureEpisodi{
-}
-class Temporada{
-}
-class Usuari{
-}
-class Valoracio{
+-title: String
+-descripcio: String
+-temporades: ArrayList<Temporada>
++addTemporada(String numTemporada, String numEpisodis)
++getTemporada(int i)
++addEp(String title, String duration, String idioma, String description, String data, String numTemporada)
++visualitzarEpisodi(Usuari us, int ep, int temp)
++serieComencada(Usuari us)
++serieAcabada(Usuari us)
++subscriureEpisodi(Usuari us, int ep, int temp)
++valorarEpisodi(Usuari us, int puntuacio, String data, int ep, int temp)
 }
 
-interface DAO_STUB
-class DAO_XML_STUB
-class STUBXMLParser
+class STUB{
+-cataleg: Cataleg
+-llistat_usuaris: LlistatUsuaris
++registrarUsuari(String id, String nom_real,String dni, String nacionalitat,
+String nickname, String password, String data_naixement, String adress, boolean vip)
++logInUsuari(String nickname, String password)
++addSerie(String id, String title, String descripcio)
++addTemp(String idSerie, String numTemporada, String numEpisodis)
++addEp(String title, String duration, String idioma, String description,
+String data, String idSerie, String numTemporada)
++visualitzarEpisodi(int ep, int temp, String ser)
++visualitzarEpisodi(String us, int ep, int temp, String ser)
++subscriureEpisodi(int ep, int temp, String ser)
++subscriureEpisodi(String client, int ep, int temp, String ser)
++valorarEpisodi(int puntuacio, String data, int ep, int temp, String ser)
++valorarEpisodi(String us, int puntuacio, String data, int ep, int temp, String ser)
++getLlistatSeriesComencades()
++getLlistatSeriesAcabades()
++getLlistatSeriesNoComencades()
+}
+class SubscriureEpisodi{
+-vist: ArrayList<Usuari>
++subscriureUsuari(Usuari us)
++usuariJaSubscrit(Usuari us)
+}
+class Temporada{
+-numTemporada: String
+-numEpisodis: String
+-episodis: ArrayList<episodis>
++addEpisodi(String title, String duration, String idioma, String description, String data)
++visualitzarEpisodi(Usuari us, int ep)
++estaComencada (Usuari us)
++estaAcabada (Usuari us)
++subscriureEpisodi(Usuari us, int ep)
++valorarEpisodi(Usuari us, int puntuacio, String data, int ep)
+}
+
+class Usuari{
+-nickname: String
+-password: String
+-data_naixement: String
+-adress: String
+-id: String
+-vip: boolean
++toString()
++equals(Object obj)
+}
+
+class Valoracio{
+-valUsuari: ArrayList<Usuari>
+-valoracions: ArrayList<String>
++valorarUnEpisodi(Usuari us, int puntuacio,String data)
++usuariJaValorat(Usuari us)
+}
+
+interface DAO_STUB{
++loadSerie(String id, String title, String desc)
++loadTemporada(String idSerie, String numTemporada, String numEpisodis)
++loadEpisodi(String title, String duration, String idioma, String description,
+String data, String idSerie, String numTemporada)
++loadArtista(String id, String nom, String tipus, String idSerie, String nacionalitat)
++loadProductora(String id, String nom, String idSerie)
++loadAdmin(String id, String nom, String usuari, String password)
++loadClient(String id, String nom, String dni, String adreca, String usuari, String password)
++loadSubscripcio(String id, String client, String serie, String numTemporada, String episodi)
++loadVisualització(String id, String client, String serie, String numTemporada, String episodi, String data)
++loadValoracio(String id, String client, String idSerie, String numTemporada, String episodi, String puntuacio, String data)
+}
+
+class DAO_XML_STUB{
+-dades: STUB
+-serie: String
+-temporada: String
+-admin: String
+-client: String
+-episodi: String
+-valoracio: String
+-productora: String
+-artista: String
+-subscripcio: String
+-visualitzacio: String
++obtenirDades(String nomFitxer)
++loadSerie(String id, String title, String desc)
++loadTemporada(String idSerie, String numTemporada, String numEpisodis)
++loadEpisodi(String title, String duration, String idioma, String description,
+ String data, String idSerie, String numTemporada)
++loadArtista(String id, String nom, String tipus, String idSerie, String nacionalitat)
++loadProductora(String id, String nom, String idSerie)
++loadValoracio(String id, String client, String idSerie, String numTemporada, String episodi,
+ String puntuacio, String data)
++loadAdmin(String id, String nom, String usuari, String password)
++loadClient(String id, String nom, String dni, String adreca, String usuari, String password)
++loadSubscripcio(String id, String client, String serie, String numTemporada, String episodi)
++loadVisualització(String id, String client, String serie, String numTemporada, String episodi, String data)
+}
+
+class STUBXMLParser{
+-daoXml: DAO_XML_STUB
++parse(String nomFitxer)
++obtenirSeries(Document doc)
++obtenirProductora(Element eSerie, String idSerie)
++obtenirArtistes(Element eSerie, String idSerie)
++obtenirTemporades(Element eSerie, String idSerie)
++obtenirEpisodis(Element eTemporada, String idSerie, String numTemporada)
++obtenirValoracions(Document doc)
++obtenirAdministradors(Document doc)
++obtenirClients(Document doc)
++obtenirSubcripcions(Document doc)
++obtenirVisualitzacions(Document doc)
+}
+
+STUB "1" *--> "1" Cataleg: conté
+STUB "1" *--> "1" LlistatUsuaris: conté
+Cataleg "1" *--> "*" Serie: consta
+LlistatUsuaris "1" *--> "*" Usuari: conté
+Serie "1" *--> "*" Temporada: conté
+Temporada "1" *--> "*" Episodi: conté
+Controlador --> STUB: controlem
+Controlador --> DAO_XML_STUB: necessita
+Controlador --> ControladorAcces: necessita
+ControladorAcces --> STUB: veu
+Persona <|-- Administrador
+Persona <|-- Usuari
+Episodi --> SubscriureEpisodi: utilitza
+Episodi --> Valoracio: utilitza
+SubscriureEpisodi --> Usuari: utilitza
+Valoracio --> Usuari: utilitza
+DAO_XML_STUB ..|> DAO_STUB: implementa
+STUBXMLParser --> DAO_XML_STUB: instància
 @enduml
