@@ -1,0 +1,24 @@
+<html xmlns:c="http://www.concordion.org/2007/concordion">
+<head>
+    <title>VisualitzarEp</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<h1>VisualitzarEp</h1>
+<p>
+    Description
+</p>
+
+<div c:example="before">
+    <div c:example="Visualitzar Episodi">
+        <span c:assert-equals="visualitzarEp()">Episodi visualitzat</span> Should be
+        <h3>Examples</h3>
+    </div>
+    <div c:example="Visualitzar Episodi No Existent">
+        <span c:assert-equals="visualitzarEpNoExistent()">No s'ha pogut visualtizar episodi</span> Should be
+        <h3>Examples</h3>
+    </div>
+</div>
+
+</body>
+</html>

@@ -43,4 +43,10 @@ public class Episodi {
     public String valorarEpisodi(Usuari us, int puntuacio, String data){
         return valoracions.valorarUnEpisodi(us,puntuacio,data);
     }
+
+    public int visualitzarEpisodi(Usuari us){
+        if (!vist.usuariJaSubscrit(us))
+            return subscriureUsuari(us);
+        return 0;
+    }
 }

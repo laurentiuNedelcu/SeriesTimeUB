@@ -35,6 +35,18 @@ public class Cataleg {
         }
     }
 
+
+    public int visualitzarEpisodi(Usuari us, int ep, int temp, String ser){
+        Iterator<Serie> it = series.iterator();
+        while(it.hasNext()){
+            Serie se = it.next();
+            if(se.getId().equals(ser)){
+                return se.visualitzarEpisodi(us, ep, temp);
+            };
+        }
+        return 1;
+    }
+
     public int subscriureEpisodi(Usuari us, int ep, int temp, String ser){
         Iterator<Serie> it = series.iterator();
         while(it.hasNext()){
@@ -45,6 +57,7 @@ public class Cataleg {
         }
         return 1;
     }
+
     public String valorarEpisodi(Usuari us, int puntuacio, String data, int ep, int temp, String ser){
         Iterator<Serie> it = series.iterator();
         while(it.hasNext()){

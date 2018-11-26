@@ -16,6 +16,12 @@ public class Temporada {
         episodis.add(ep);
     }
 
+    public int visualitzarEpisodi(Usuari us, int ep){
+        int numE = Integer.parseInt(numEpisodis);
+        if(ep<=numE)
+            return episodis.get(ep-1).visualitzarEpisodi(us);
+        return 1;
+    }
     public int subscriureEpisodi(Usuari us, int ep){
         return episodis.get(ep-1).subscriureUsuari(us);
     }

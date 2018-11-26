@@ -11,6 +11,14 @@ public class SubscriureEpisodi {
     }
 
     public int subscriureUsuari(Usuari us){
+        if(!usuariJaSubscrit(us)){
+            vist.add(us);
+            return 0;
+        }
+        return 1;
+    }
+
+    public boolean usuariJaSubscrit(Usuari us){
         boolean jaSubscrit = false;
         Iterator<Usuari> it = vist.iterator();
         while(it.hasNext()){
@@ -19,10 +27,6 @@ public class SubscriureEpisodi {
                 jaSubscrit = true;
             };
         }
-        if(!jaSubscrit){
-            vist.add(us);
-            return 0;
-        }
-        return 1;
+        return jaSubscrit;
     }
 }

@@ -26,6 +26,9 @@ public class Controlador {
     public Usuari logInUsuari(String nickname, String password) {//+/- recuperar/desar Dades de Pro2
         return dades.getLlistat_usuaris().logInUsuari(nickname, password);
     }
+    public int visualitzarEpisodi(int ep, int temp, String ser){
+        return dades.visualitzarEpisodi(ep, temp, ser);
+    }
     public int subscriureEpisodi(int ep, int temp, String ser){
         return dades.subscriureEpisodi(ep, temp, ser);
     }
