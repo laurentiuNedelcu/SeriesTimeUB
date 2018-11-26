@@ -1,10 +1,92 @@
 @startuml
-(*)  --> "check input"
-If "input is verbose" then
---> [Yes] "turn on verbosity"
---> "run command"
-else
---> "run command"
-Endif
--->(*)
+title __Diagrama de classes de la app SeriesTimeUB__\n
+
+
+class Controlador{
+-dades: STUB
+-dao: DAO_XML_STUB
+-facade: ControladorAcces
+
++registreUsuari(int id, String nom_real, int dni, String nacionalitat, String nickname,
+ String password, String data_naixement, String adress, boolean vip)
++logInUsuari(String nickname, String password)
++visualitzarEpisodi(int ep, int temp, String ser)
++subscriureEpisodi(int ep, int temp, String ser)
++String valorarEpisodi(int puntuacio, String data, int ep, int temp, String ser)
+}
+
+class ControladorAcces{
+-dades: STUB
++registreUsuari(int id, String nom_real, int dni, String nacionalitat, String nickname,
+ String password, String data_naixement, String adress, boolean vip)
++logInUsuari(String nickname, String password)
+}
+
+
+class Administrador{
+-nickname: String
+-password: String
+}
+
+class Cataleg{
+-series: ArrayList<Series>
++addSerie(String id, String title, String descripcio)
++addTemp(String idSerie, String numTemporada, String numEpisodis)
++addEp(String title, String duration, String idioma, String description,
+ String data, String idSerie, String numTemporada)
++visualitzarEpisodi(Usuari us, int ep, int temp, String ser)
++subscriureEpisodi(Usuari us, int ep, int temp, String ser)
++valorarEpisodi(Usuari us, int puntuacio, String data, int ep, int temp, String ser)
++getCataleg()
+}
+
+class CercarSeries{
+}
+
+class Episodi{
+-title: String
+-duration: String
+-idioma: String
+-description: String
+-data: String
+-vist: SubscriureEpisodi
+-valoracions: Valoracio
++subscriureUsuari(Usuari us)
++valorarEpisodi(Usuari us, int puntuacio, String data)
++visualitzarEpisodi(Usuari us)
+}
+
+class LListatUsuaris{
+-llistat_usuaris: ArrayList<Usuari>
+-usuariActual: Usuari
++registreUsuari(int id, String nom_real, int dni, String nacionalitat, String nickname,
+ String password, String data_naixement, String adress, boolean vip)
++logInUsuari(String nickname, String password)
++existentUser(Usuari nouUser)
++safePassword(Usuari u)
+}
+
+class Persona{
+-id: String
+-nom_real: String
+-nacionalitat: String
+}
+
+class Serie{
+-id: String
+}
+class STUB{
+}
+class SubscriureEpisodi{
+}
+class Temporada{
+}
+class Usuari{
+}
+class Valoracio{
+}
+
+interface DAO_STUB
+class DAO_XML_STUB
+class STUBXMLParser
 @enduml
