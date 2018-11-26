@@ -13,7 +13,7 @@ public class SubscriureEpisodi {
     @BeforeExample
     public void init(){
         cont = new Controlador("src/resources/STUB.xml");
-        cont.registreUsuari("Quim", "spain", "Yuste32", "12345678", "03/02/99");
+        cont.registreUsuari(1,"Quim", 1111111,"spain", "Yuste32", "12345678", "03/02/99", "Unknown", true);
         cont.logInUsuari("Yuste32", "12345678");
     }
 

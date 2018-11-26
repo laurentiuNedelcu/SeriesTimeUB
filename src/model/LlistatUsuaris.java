@@ -19,7 +19,7 @@ public class LlistatUsuaris {
     }
 
     public Usuari registrarUsuari(int id, String nom_real, int dni, String nacionalitat, String nickname, String password, String data_naixement, String adress, boolean vip){
-        Usuari nouUsuari = new Usuari(id, dni, nom_real, nacionalitat, nickname, password, data_naixement, adress, vip);
+        Usuari nouUsuari = new Usuari(id, nom_real, dni, nacionalitat, nickname, password, data_naixement, adress, vip);
         if(existentUser(nouUsuari) || !safePassword(nouUsuari)) {
             return null;
 

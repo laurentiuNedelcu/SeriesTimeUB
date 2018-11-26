@@ -19,8 +19,8 @@ public class Controlador { //Funcionalitats de subscriure Episodi i valorar Epis
         return dades.getCataleg();
     }
 
-    public Usuari registreUsuari(String nom_real, String nacionalitat, String nickname, String password, String data_naixement){
-        return facade.registreUsuari(nom_real, nacionalitat, nickname, password, data_naixement);
+    public Usuari registreUsuari(int id, String nom_real, int dni, String nacionalitat, String nickname, String password, String data_naixement, String adress, boolean vip){
+        return facade.registreUsuari(id, nom_real, dni, nacionalitat, nickname, password, data_naixement, adress, vip);
     }
     public Usuari logInUsuari(String nickname, String password) {//+/- recuperar/desar Dades de Pro2
         return facade.logInUsuari(nickname, password);

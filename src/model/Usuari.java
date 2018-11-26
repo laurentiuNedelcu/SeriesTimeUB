@@ -15,7 +15,7 @@ public class Usuari extends Persona{
         this.vip = false;
     }
 
-    public Usuari(int id, int dni, String nom_real, String nacionalitat, String nickname, String password, String data_naixement, String adress, boolean vip){
+    public Usuari(int id, String nom_real, int dni, String nacionalitat, String nickname, String password, String data_naixement, String adress, boolean vip){
         super(id, nom_real,nacionalitat);
         this.nickname = nickname;
         this.password = password;

@@ -19,7 +19,7 @@ public class LoguejarUsuari {
 
     @Test
     public boolean logInUsuari() {
-        user = controller.registreUsuari("Campió","Monmteló","Nickname","Password","12/14/97");
+        user = controller.registreUsuari(1,"Campió", 1111111,"Monmteló","Nickname","Password","12/14/97","Unkown", true);
         if(user.equals(controller.logInUsuari("Nickname","Password")))
             return true;
         return false;
@@ -34,7 +34,7 @@ public class LoguejarUsuari {
 
     @Test
     public boolean logInUsuariContrasenyaIncorrecta(){
-        user = controller.registreUsuari("Campió","Monmteló","Nickname","Password","12/14/97");
+        user = controller.registreUsuari(1,"Campió", 1111111,"Monmteló","Nickname","Password","12/14/97", "Unknown", true);
         if(user.equals(controller.logInUsuari("Nickname","Passwrdo")))
             return true;
         return false;

@@ -15,13 +15,13 @@ public class RegistrarUsuari {
     @BeforeExample
     public void init(){
         controller = new Controlador("src/resources/STUB.xml");
-        nouUsuari = new Usuari("Edward Elric","Xerxes", 
-                "Alquimista de Acero", "LoveAlphonse", "00/00/1899");
+        nouUsuari = new Usuari(1,"Edward Elric", 1111111, "Xerxes",
+                "Alquimista de Acero", "LoveAlphonse", "00/00/1899", "Unknown", true);
     }
 
     @Test
     public boolean registreUsuari() {
-        Usuari registrat = controller.registreUsuari("Edward Elric", "Xerxes", "Alquimista de Acero", "LoveAlphonse", "00/00/1899");
+        Usuari registrat = controller.registreUsuari(1,"Edward Elric",1111111, "Xerxes", "Alquimista de Acero", "LoveAlphonse", "00/00/1899", "Unknown", true);
         if(nouUsuari.equals(registrat))
             return true;
         System.out.println("hi");
@@ -30,8 +30,8 @@ public class RegistrarUsuari {
 
     @Test
     public boolean usuariJaRegistrat(){
-        controller.registreUsuari("Edward Elric", "Xerxes", "Alquimista de Acero", "LoveAlphonse", "00/00/1899");
-        if(nouUsuari.equals(controller.registreUsuari("Edward Elric", "Xerxes", "Alquimista de Acero", "LoveAlphonse", "00/00/1899")))
+        controller.registreUsuari(1,"Edward Elric", 1111111, "Xerxes", "Alquimista de Acero", "LoveAlphonse", "00/00/1899", "Unknown", true);
+        if(nouUsuari.equals(controller.registreUsuari(1,"Edward Elric",1111111, "Xerxes", "Alquimista de Acero", "LoveAlphonse", "00/00/1899","Unknown", true)))
             return true;
         return false;
     }
@@ -39,8 +39,8 @@ public class RegistrarUsuari {
     @Test
     public boolean contrasenyaNoValida(){
         System.out.println("holi");
-        Usuari us = new Usuari("Edward Elric", "Xerxes", "Alquimista de Acero", "1234", "00/00/1899");
-        Usuari registrat = controller.registreUsuari("Edward","Xerxes","Edi","1234","00/02/14");
+        Usuari us = new Usuari(1, "Edward Elric", 1111111, "Xerxes", "Alquimista de Acero", "1234", "00/00/1899", "Unknown", true);
+        Usuari registrat = controller.registreUsuari(1,"Edward",1111111,"Xerxes","Edi","1234","00/02/14", "Unknown", true);
 
         if(us.equals(registrat))
             return true;
