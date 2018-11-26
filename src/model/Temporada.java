@@ -3,8 +3,9 @@ package model;
 import java.util.ArrayList;
 
 public class Temporada {
-    String numTemporada, numEpisodis;
-    ArrayList<Episodi> episodis;
+    private String numTemporada, numEpisodis;
+    private ArrayList<Episodi> episodis;
+    private boolean vista;
 
     public Temporada(String numTemporada, String numEpisodis){
         this.numTemporada = numTemporada;

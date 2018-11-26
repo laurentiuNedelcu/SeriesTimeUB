@@ -18,8 +18,8 @@ public class LlistatUsuaris {
         return this.llistat_usuaris;
     }
 
-    public Usuari registrarUsuari(String nom_real, String nacionalitat, String nickname, String password, String data_naixement){
-        Usuari nouUsuari = new Usuari(nom_real, nacionalitat, nickname, password, data_naixement);
+    public Usuari registrarUsuari(int id, String nom_real, int dni, String nacionalitat, String nickname, String password, String data_naixement, String adress, boolean vip){
+        Usuari nouUsuari = new Usuari(id, dni, nom_real, nacionalitat, nickname, password, data_naixement, adress, vip);
         if(existentUser(nouUsuari) || !safePassword(nouUsuari)) {
             return null;
 

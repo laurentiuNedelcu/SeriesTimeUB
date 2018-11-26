@@ -4,17 +4,15 @@ import model.STUB;
 import model.Usuari;
 import resources.DAO_XML_STUB;
 
-import java.util.ArrayList;
-
 public class Controlador { //Funcionalitats de subscriure Episodi i valorar Episodi i obtenir el catàleg
     private STUB dades;
     private DAO_XML_STUB dao;
-    private FacadeController facade;
+    private ControladorAcces facade;
 
     public Controlador(String nomFitxer){
         dades = new STUB();
         dao = new DAO_XML_STUB(nomFitxer,dades);
-        facade = new FacadeController(dades);
+        facade = new ControladorAcces(dades);
     }
 
     public String getCataleg(){
@@ -27,6 +25,7 @@ public class Controlador { //Funcionalitats de subscriure Episodi i valorar Epis
     public Usuari logInUsuari(String nickname, String password) {//+/- recuperar/desar Dades de Pro2
         return facade.logInUsuari(nickname, password);
     }
+
     public int visualitzarEpisodi(int ep, int temp, String ser){
         return dades.visualitzarEpisodi(ep, temp, ser);
     }

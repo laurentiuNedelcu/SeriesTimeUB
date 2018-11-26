@@ -1,7 +1,7 @@
 package model;
 
-public class STUB {//Cal persistencia de dades? -> serializable?
-    private Cataleg cat;//Cambio QUIM
+public class STUB {
+    private Cataleg cat;
     private LlistatUsuaris llistat_usuaris;
 
     public STUB(){

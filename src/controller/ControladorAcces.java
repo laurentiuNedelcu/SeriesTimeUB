@@ -3,10 +3,10 @@ package controller;
 import model.STUB;
 import model.Usuari;
 
-public class FacadeController{// Funcionalitats de loguejar i registrar usuari
+public class ControladorAcces {// Funcionalitats de loguejar i registrar usuari
     private STUB dades;
 
-    public FacadeController(STUB dades){
+    public ControladorAcces(STUB dades){
         this.dades = dades;
     }
 
