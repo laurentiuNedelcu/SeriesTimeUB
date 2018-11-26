@@ -1,0 +1,74 @@
+@startuml
+title Model de domini de la app SeriesTimeUB
+
+object CatalegSeriesTimeUB
+object Series{
+    titol
+    breu descripció
+    imatge de la sèrie
+    any_emissio_primer_episodi
+}
+object EstatSerie
+object Completada
+object NoCompletada
+object NoDisponible
+object Temporada{
+    num_temporada
+    num_episodis
+    num_episodis_vistos
+}
+object Visualitzacio{
+    llista_visualitzacions
+}
+object Episodi
+object EspecificacioEpisodi{
+    nom
+    data_primera_emissio
+    duracio
+    descripcio
+    idioma_original
+    enllac
+    valoracio
+    dispositiu
+    personatge_favorit
+}
+object Persona{
+    nom_real
+    nacionalitat
+}
+object Usuari{
+    nickname
+    password
+    data_naixement
+}
+object Actors
+object Directors
+object ProtagonistesPrincipals{
+    nom_serie
+}
+object Productora{
+    nom
+    identificador
+    any_creacio
+}
+
+CatalegSeriesTimeUB "1" *-- "1" Series :contè
+Series "1" *-- "*" Temporada :té
+Temporada "1" *-- "*" Episodi :té
+CatalegSeriesTimeUB "1" *-- "*" Usuari :conté
+
+Persona <|-- Actors
+Persona <|-- Directors
+Persona <|-- Usuari
+Actors <|-- ProtagonistesPrincipals
+EstatSerie <|-- Completada
+EstatSerie <|-- NoCompletada
+EstatSerie <|-- NoDisponible
+
+Episodi "*" -- "*" Visualitzacio: té
+Visualitzacio "*" -- "*" Usuari: té
+Series "*" -- "*" Productora :té
+Series "1" -- "*" ProtagonistesPrincipals :té
+Series "1" -- "*" EstatSerie :té
+Episodi "1" -- "1" EspecificacioEpisodi: té
+@enduml
