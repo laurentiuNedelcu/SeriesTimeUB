@@ -12,14 +12,16 @@
 <p>VULL valorar un episodi</p>
 <p>PER A per donar la meva opinió</p>
 </p>
+    <div c:exemple="before">
+        <div c:example="CasDeÈxit">
+            <span c:assert-equals="valorarEpisodi()">Robert: good - 15/11/18</span>
+            <h3>T7.1 cas d'èxit</h3>
+        </div>
 
-    <div c:example="Cancellar" c:status="Unimplemented">
-        <h3>T7.1 Flux alternatiu</h3>
+        <div c:example="Valorar episodi que ja es troba valorat">
+            <span c:assert-equals="valorarEpisodiValorat()">No pot tornar a valorar</span>
+            <h3>T7.2 cas alternatiu</h3>
+        </div>
     </div>
-
-    <div c:example="CasDeÈxit" c:status="Unimplemented">
-        <h3>T7.3 cas d'èxit</h3>
-    </div>
-
 </body>
 </html>

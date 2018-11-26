@@ -1,4 +1,4 @@
-package spec.LoguejarUsuari;
+package spec.LoguejarUsuariTest;
 
 import controller.Controlador;
 import model.Usuari;

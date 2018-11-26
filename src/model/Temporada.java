@@ -19,4 +19,9 @@ public class Temporada {
     public int subscriureEpisodi(Usuari us, int ep){
         return episodis.get(ep-1).subscriureUsuari(us);
     }
+
+    public String valorarEpisodi(Usuari us, int puntuacio, String data, int ep){
+        return episodis.get(ep-1).valorarEpisodi(us,puntuacio,data);
+    }
 }
+

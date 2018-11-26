@@ -1,7 +1,6 @@
-package spec.SubscriureEpisodi;
+package spec.SubscriureEpisodiTest;
 
 import controller.Controlador;
-import model.Usuari;
 import org.concordion.api.BeforeExample;
 import org.concordion.integration.junit4.ConcordionRunner;
 import org.junit.Test;

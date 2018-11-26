@@ -29,5 +29,8 @@ public class Controlador {
     public int subscriureEpisodi(int ep, int temp, String ser){
         return dades.subscriureEpisodi(ep, temp, ser);
     }
+    public String valorarEpisodi(int puntuacio, String data, int ep, int temp, String ser){
+        return dades.valorarEpisodi(puntuacio,data,ep,temp,ser);
+    }
 
 }

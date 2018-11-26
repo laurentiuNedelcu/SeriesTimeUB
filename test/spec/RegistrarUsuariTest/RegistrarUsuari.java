@@ -1,4 +1,4 @@
-package spec.RegistrarUsuari;
+package spec.RegistrarUsuariTest;
 
 import controller.Controlador;
 import model.Usuari;

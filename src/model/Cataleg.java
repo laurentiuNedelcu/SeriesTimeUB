@@ -45,6 +45,16 @@ public class Cataleg {
         }
         return 1;
     }
+    public String valorarEpisodi(Usuari us, int puntuacio, String data, int ep, int temp, String ser){
+        Iterator<Serie> it = series.iterator();
+        while(it.hasNext()){
+            Serie se = it.next();
+            if(se.getId().equals(ser)){
+                return se.valorarEpisodi(us, puntuacio, data, ep, temp);
+            };
+        }
+        return "Serie no trobada";
+    }
 
     public String getCataleg(){
         String s = "";

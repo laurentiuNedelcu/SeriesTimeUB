@@ -4,6 +4,7 @@ import java.util.*;
 public class Episodi {
     String title,  duration,  idioma,  description,  data;
     SubscriureEpisodi vist;
+    Valoracio valoracions;
 
     public Episodi(String title, String duration, String idioma, String description, String data){
         this.title = title;
@@ -12,6 +13,7 @@ public class Episodi {
         this.description = description;
         this.data = data;
         vist = new SubscriureEpisodi();
+        valoracions = new Valoracio();
     }
 
     public String getTitle() {
@@ -36,5 +38,9 @@ public class Episodi {
 
     public int subscriureUsuari(Usuari us){
         return vist.subscriureUsuari(us);
+    }
+
+    public String valorarEpisodi(Usuari us, int puntuacio, String data){
+        return valoracions.valorarUnEpisodi(us,puntuacio,data);
     }
 }

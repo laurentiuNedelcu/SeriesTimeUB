@@ -39,4 +39,7 @@ public class Serie {
     public int subscriureEpisodi(Usuari us, int ep, int temp){
         return temporades.get(temp-1).subscriureEpisodi(us,ep);
     }
+    public String valorarEpisodi(Usuari us, int puntuacio, String data, int ep, int temp){
+        return temporades.get(temp-1).valorarEpisodi(us,puntuacio,data,ep);
+    }
 }
