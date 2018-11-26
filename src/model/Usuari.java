@@ -4,6 +4,8 @@ public class Usuari extends Persona{ //Dades d'un usuari -> classe filla
     private String nickname;
     private String password;
     private String data_naixement;
+    //Listas
+
 
     public Usuari(){
         super();
