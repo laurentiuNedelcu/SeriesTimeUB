@@ -14,7 +14,7 @@ public class LoguejarUsuari {
 
     @BeforeExample
     public void init(){
-        controller = new Controlador("src/resources/STUB.xml");
+        controller = new Controlador();
     }
 
     @Test

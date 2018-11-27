@@ -12,7 +12,7 @@ public class VisualitzarEp {
 
     @BeforeExample
     public void init(){
-        cont = new Controlador("src/resources/STUB.xml");
+        cont = new Controlador();
     }
 
     @Test
