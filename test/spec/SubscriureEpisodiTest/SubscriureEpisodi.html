@@ -10,27 +10,31 @@
 <h1>UC5 - Susbriure's al Episodi</h1>
 
 <p>
-<p>US8</p>
+<p>US5</p>
 <p>COM  a usuari enregistrat i logejat</p>
 <p>VULL subscriure els episodis que ja he vist</p>
 <p>PER A poder valorar-lo</p>
 </p>
 
 <div c:example="before">
+
+    <h3>Criteri d'acceptació 1</h3>
+    <p>
+        <b>En cas de que</b> l'usuari estigui loguejat <b>quan</b> estigui susbcrivint l'episodi <b>el sistema</b> subscriura l'usuari a l'episodi.
+    </p>
     <div c:example="Cas d'èxit">
-        <span c:assert-equals="subscriureEpisodi()">0</span> Should be
+        <span c:assert-equals="subscriureEpisodi()">true</span> Should be
         <h3>T5.1 Cas d'èxit</h3>
     </div>
 
+    <h3>Criteri d'acceptació 2</h3>
+    <p>
+        <b>En cas de que</b> l'usuari estigui loguejat <b>quan</b> estigui susbcrivint l'episodi <b>el sistema</b> retornara error.
+    </p>
     <div c:example="EpisodiJaSubscrit">
-        <span c:assert-equals="episodiJaSubscrit()">1</span> Should be
-        <h3>T5.2 Flux alternatiu 1</h3>
+        <span c:assert-equals="episodiJaSubscrit()">false</span> Should be
+        <h3>T5.2 Flux alternatiu 1 (Episodi ja subscrit)</h3>
     </div>
-
-    <div c:example="L'usuari vol valorar l'episodi" c:status="Unimplemented">
-        <h3>T5.3 Flux alternatiu 2 (s'inicia el cas d'us 7)</h3>
-    </div>
-
 </div>
 </body>
 

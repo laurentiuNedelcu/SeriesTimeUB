@@ -22,7 +22,6 @@ public class ValorarEpisodi {
     @Test
     public String valorarEpisodi() {
         String s = cont.valorarEpisodi(6,"15/11/18",1,1,"bbad");
-        System.out.println(s);
         return s;
     }
     @Test

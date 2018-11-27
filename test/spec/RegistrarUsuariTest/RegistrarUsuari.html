@@ -9,22 +9,32 @@
 <p><b>Com</b> a client no registrat <b>Vull</b> passar un registre <b>Per</b> a donar-me d'alta a l'aplicació STUB i gaudir dels seus serveis.</p>
 
 <div c:example="before">
+
+    <h3>Criteri d'acceptació 1</h3>
+    <p>
+        <b>En cas de que</b> l'usuari no estigui registrat <b>quan</b> estigui registrant-se <b>el sistema</b> guardara les seves dades.
+    </p>
     <div c:example="Cas d'èxit">
         <span c:assert-equals="registreUsuari()">true</span> Should be
         <h3>T1.1 Cas d'èxit</h3>
-        <p><b>En cas de</b> que el client introdueixi les dades correctament <b>quan</b> s'està registrant <b>el sistema</b> registrarà al nou usuari en l'aplicació.</p>
     </div>
 
+    <h3>Criteri d'acceptació 2</h3>
+    <p>
+        <b>En cas de que</b> l'usuari ja estigui registrat <b>quan</b> torni a registrant-se <b>el sistema</b> no guardara les seves dades.
+    </p>
     <div c:example="Usuari ja registrat">
         <span c:assert-equals="usuariJaRegistrat()">false</span> Should be
-        <h3>T1.2 flux alternatiu</h3>
-        <p><b>En cas de</b> que el client introdueixi les seves dades i el nickname coincideixi amb algun dels usuaris del llistat d'usuaris de l'aplicació STUB<b>quan</b> s'està registrant <b>el sistema</b> llençarà una excepció conforme l'usuari ja existeix.</p>
+        <h3>T1.2 flux alternatiu (Usuari ja registrat)</h3>
     </div>
 
+    <h3>Criteri d'acceptació 3</h3>
+    <p>
+        <b>En cas de que</b> l'usuari no estigui registrat <b>quan</b> estigui registrant-se <b>el sistema</b> no guardarà les seves dades.
+    </p>
     <div c:example="Contraseña no valida">
         <span c:assert-equals="contrasenyaNoValida()">false</span> Should be
-        <h3>T1.3 flux alternatiu</h3>
-        <p><b>En cas de</b> que el client introdueixi una contrasenya igual que el nickname/nom real/data de naixement o sigui menor a 8 caràcters <b>quan</b> s'està registrant <b>el sistema</b> llençarà una excepció conforme la contrasenya és massa insegura.</p>
+        <h3>T1.3 flux alternatiu (Contrasenya no valida)</h3>
     </div>
 
 </div>

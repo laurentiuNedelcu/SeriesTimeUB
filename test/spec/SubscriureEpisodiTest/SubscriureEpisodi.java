@@ -19,14 +19,18 @@ public class SubscriureEpisodi {
 
 
     @Test
-    public int subscriureEpisodi() {
-        return cont.subscriureEpisodi(1,1,"bbad");
+    public boolean subscriureEpisodi() {
+        if(cont.subscriureEpisodi(1,1,"bbad") == 0)
+            return true;
+        return false;
     }
 
     @Test
-    public int episodiJaSubscrit() {
+    public boolean episodiJaSubscrit() {
         cont.subscriureEpisodi(1,1,"bbad");
-        return cont.subscriureEpisodi(1,1,"bbad");
+        if(cont.subscriureEpisodi(1,1,"bbad") == 0)
+            return true;
+        return false;
     }
 
 

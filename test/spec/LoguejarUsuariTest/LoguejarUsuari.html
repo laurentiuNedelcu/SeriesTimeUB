@@ -16,14 +16,16 @@
 
     <div c:example="Cas d'èxit">
         <span c:assert-equals="logInUsuari()">true</span> Should be
+        <h3>T2.1 Cas d'èxit</h3>
     </div>
+
     <h3>Criteri d'acceptació 2</h3>
     <p>
         <b>En cas de que</b> el client no estigui registrat <b>quan</b> estigui loguejant-se <b>el sistema</b> respondrà amb un missatge d'error.
     </p>
-
     <div c:example="Usuari no registrat">
     <span c:assert-equals="logInUsuariNoRegistrat()">true</span> Should be
+        <h3>T2.2 flux alternatiu (L'usuari encara no es troba registrat)</h3>
     </div>
 
     <h3>Criteri d'acceptació 3</h3>
@@ -33,6 +35,7 @@
 
     <div c:example="Contrasenya incorrecte">
     <span c:assert-equals="logInUsuariContrasenyaIncorrecta()">false</span> Should be
+        <h3>T2.3 flux alternatiu (Contrasenya incorrecta)</h3>
     </div>
 </div>
 

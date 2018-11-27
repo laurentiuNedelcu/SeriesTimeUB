@@ -10,21 +10,41 @@
 </p>
 
 <div c:example="before">
+
+    <h3>Criteri d'acceptació 1</h3>
+    <p>
+        <b>En cas de que</b> l'usuari estigui loguejat <b>quan</b> vulgui veure totes les seires <b>el sistema</b> mostrara el cataleg.
+    </p>
     <div c:example="Visualitzar cataleg sencer">
         <span c:assert-equals="getCataleg()">Breaking Bad Mr Robot Game of Thrones Penny Dreadful Black Mirror Sons of Anarchy Stranger Things Misfits Peaky Blinders Walking Dead </span> Should be
     <h3>Cas d'èxit (Veure cataleg de series)</h3>
     </div>
 
+
+    <h3>Criteri d'acceptació 2</h3>
+    <p>
+        <b>En cas de que</b> l'usuari estigui loguejat <b>quan</b> vulgui veure les series no començades <b>el sistema</b> mostrara les series no començades de l'usuari.
+    </p>
     <div c:example="Veure sèries no començades">
         <span c:assert-equals="getLlistatSeriesNoComencades()">Breaking Bad Penny Dreadful Black Mirror Sons of Anarchy Stranger Things Misfits Peaky Blinders Walking Dead </span> Should be
         <h3>T3.1 flux alternatiu (Veure llista d'episodis no començats)</h3>
     </div>
 
+
+    <h3>Criteri d'acceptació 3</h3>
+    <p>
+        <b>En cas de que</b> l'usuari estigui loguejat <b>quan</b> vulgui veure les series començades <b>el sistema</b> mostrara les series que l'usuari ha començat.
+    </p>
     <div c:example="Veure sèries començades">
         <span c:assert-equals="getLlistatSeriesComencades()">Game of Thrones </span> Should be
         <h3>T3.1 flux alternatiu (Veure llista de series Començades)</h3>
     </div>
 
+
+    <h3>Criteri d'acceptació 1</h3>
+    <p>
+        <b>En cas de que</b> l'usuari estigui loguejat <b>quan</b> vulgui veure les series finalitzades<b>el sistema</b> mostrara les series que l'usuari ja ha acabat.
+    </p>
     <div c:example="Veure sèries finalitzades">
         <span c:assert-equals="getLlistatSeriesAcabades()">Mr Robot </span> Should be
         <h3>T3.1 flux alternatiu (Veure Series acabades)</h3>

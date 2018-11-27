@@ -13,14 +13,23 @@
 <p>PER A per donar la meva opinió</p>
 </p>
     <div c:exemple="before">
+
+        <h3>Criteri d'acceptació 1</h3>
+        <p>
+            <b>En cas de que</b> l'usuari estigui loguejat <b>quan</b> estigui valorant l'episodi <b>el sistema</b> desara la valoracio a l'episodi.
+        </p>
         <div c:example="CasDeÈxit">
             <span c:assert-equals="valorarEpisodi()">Robert: good - 15/11/18</span>
             <h3>T7.1 cas d'èxit</h3>
         </div>
 
+        <h3>Criteri d'acceptació 2</h3>
+        <p>
+            <b>En cas de que</b> l'usuari estigui loguejat <b>quan</b> estigui valorant l'episodi <b>el sistema</b> retornara error.
+        </p>
         <div c:example="Valorar episodi que ja es troba valorat">
             <span c:assert-equals="valorarEpisodiValorat()">No pot tornar a valorar</span>
-            <h3>T7.2 cas alternatiu</h3>
+            <h3>T7.2 cas alternatiu (Episodi ja valorat)</h3>
         </div>
     </div>
 </body>
