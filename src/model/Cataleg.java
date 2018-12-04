@@ -3,6 +3,7 @@ package model;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 public class Cataleg {
     ArrayList<Serie> series;
@@ -69,53 +70,43 @@ public class Cataleg {
         return "Serie no trobada";
     }
 
-    public String getCataleg(){
-        String s = "";
-        Iterator<Serie> it = series.iterator();
-        while(it.hasNext()){
-            Serie se = it.next();
-            s += se.getTitle();
-            s += " ";
-        }
-        return s;
+    public List<Serie> getCataleg(){
+        return series;
     }
 
-    public String getLlistatSeriesComencades(Usuari us){
-        String s = "";
+    public List<Serie> getLlistatSeriesComencades(Usuari us){
+        ArrayList<Serie> aux = new ArrayList<>();
         Iterator<Serie> it = series.iterator();
         while(it.hasNext()){
             Serie se = it.next();
             if(se.serieComencada(us) && !se.serieAcabada(us)) {
-                s += se.getTitle();
-                s += " ";
+                aux.add(se);
             }
         }
-        return s;
+        return aux;
     }
 
-    public String getLlistatSeriesAcabades(Usuari us){
-        String s = "";
+    public List<Serie> getLlistatSeriesAcabades(Usuari us){
+        ArrayList<Serie> aux = new ArrayList<>();
         Iterator<Serie> it = series.iterator();
         while(it.hasNext()){
             Serie se = it.next();
             if(se.serieAcabada(us)) {
-                s += se.getTitle();
-                s += " ";
+                aux.add(se);
             }
         }
-        return s;
+        return aux;
     }
 
-    public String getLlistatSeriesNoComencades(Usuari us){
-        String s = "";
+    public List<Serie> getLlistatSeriesNoComencades(Usuari us){
+        ArrayList<Serie> aux = new ArrayList<>();
         Iterator<Serie> it = series.iterator();
         while(it.hasNext()){
             Serie se = it.next();
             if(!se.serieAcabada(us)&&!se.serieComencada(us)) {
-                s += se.getTitle();
-                s += " ";
+                aux.add(se);
             }
         }
-        return s;
+        return aux;
     }
 }

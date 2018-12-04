@@ -1,5 +1,7 @@
 package model;
 
+import java.util.List;
+
 public class STUB {
     private Cataleg cat;
     private LlistatUsuaris llistat_usuaris;
@@ -33,7 +35,7 @@ public class STUB {
         cat.addEp(title, duration, idioma, description, data, idSerie, numTemporada);
     }
 
-    public String getCataleg() {
+    public List getCataleg() {
         return cat.getCataleg();
     }
 
@@ -61,15 +63,15 @@ public class STUB {
         return cat.valorarEpisodi(llistat_usuaris.getUsuari(us), puntuacio, data, ep, temp, ser);
     }
 
-    public String getLlistatSeriesComencades(){
+    public List<Serie> getLlistatSeriesComencades(){
         return cat.getLlistatSeriesComencades(llistat_usuaris.getUsuariActual());
     }
 
-    public String getLlistatSeriesAcabades(){
+    public List<Serie> getLlistatSeriesAcabades(){
         return cat.getLlistatSeriesAcabades(llistat_usuaris.getUsuariActual());
     }
 
-    public String getLlistatSeriesNoComencades(){
+    public List<Serie> getLlistatSeriesNoComencades(){
         return cat.getLlistatSeriesNoComencades(llistat_usuaris.getUsuariActual());
     }
 }

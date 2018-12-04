@@ -1,8 +1,11 @@
 package controller;
 
 import model.STUB;
+import model.Serie;
 import model.Usuari;
 import resources.DAO_XML_STUB;
+
+import java.util.List;
 
 public class Controlador { //Funcionalitats de subscriure Episodi i valorar Episodi i obtenir el catàleg
     private STUB dades;
@@ -15,7 +18,7 @@ public class Controlador { //Funcionalitats de subscriure Episodi i valorar Epis
         facade = new ControladorAcces(dades);
     }
 
-    public String getCataleg(){
+    public List getCataleg(){
         return dades.getCataleg();
     }
 
@@ -38,15 +41,15 @@ public class Controlador { //Funcionalitats de subscriure Episodi i valorar Epis
         return dades.valorarEpisodi(puntuacio,data,ep,temp,ser);
     }
 
-    public String llistaDeSeriesComencades(){
+    public List<Serie> llistaDeSeriesComencades(){
         return dades.getLlistatSeriesComencades();
     }
 
-    public String llistaDeSeriesAcabades(){
+    public List<Serie> llistaDeSeriesAcabades(){
         return dades.getLlistatSeriesAcabades();
     }
 
-    public String llistaDeSeriesNoComencades(){
+    public List<Serie> llistaDeSeriesNoComencades(){
         return dades.getLlistatSeriesNoComencades();
     }
 
