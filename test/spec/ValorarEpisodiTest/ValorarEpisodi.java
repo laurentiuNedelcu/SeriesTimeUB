@@ -32,12 +32,4 @@ public class ValorarEpisodi {
         return s;
 
     }
-/*
-    @Test
-    public int episodiJaSubscrit() {
-        cont.subscriureEpisodi(1,1,"bbad");
-        return cont.subscriureEpisodi(1,1,"bbad");
-    }
-
-*/
 }

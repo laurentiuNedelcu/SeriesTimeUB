@@ -1,10 +1,13 @@
 package spec.VisualitzarCatalegTest;
 
 import controller.Controlador;
+import model.Serie;
 import org.concordion.api.BeforeExample;
 import org.concordion.integration.junit4.ConcordionRunner;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+
+import java.util.Iterator;
 
 @RunWith(ConcordionRunner.class)
 public class VisualitzarCat {
@@ -23,24 +26,49 @@ public class VisualitzarCat {
 
     @Test
     public String getCataleg() {
-        return cont.getCataleg();
+        String s = "";
+        Iterator<Serie> it = cont.getCataleg().iterator();
+        while(it.hasNext()){
+            Serie se = it.next();
+            s += se.getTitle();
+            s += " ";
+        }
+        return s;
     }
 
     @Test
     public String getLlistatSeriesNoComencades(){
-        String s = cont.llistaDeSeriesNoComencades();
+        String s = "";
+        Iterator<Serie> it = cont.llistaDeSeriesNoComencades().iterator();
+        while(it.hasNext()){
+            Serie se = it.next();
+            s += se.getTitle();
+            s += " ";
+        }
         return s;
     }
 
     @Test
     public String getLlistatSeriesComencades(){
-        String s = cont.llistaDeSeriesComencades();
+        String s = "";
+        Iterator<Serie> it = cont.llistaDeSeriesComencades().iterator();
+        while(it.hasNext()){
+            Serie se = it.next();
+            s += se.getTitle();
+            s += " ";
+        }
         return s;
     }
 
     @Test
     public String getLlistatSeriesAcabades(){
-        String s = cont.llistaDeSeriesAcabades();
+        String s = "";
+        Iterator<Serie> it = cont.llistaDeSeriesAcabades().iterator();
+        while(it.hasNext()){
+            Serie se = it.next();
+            s += se.getTitle();
+            s += " ";
+        }
         return s;
     }
 
