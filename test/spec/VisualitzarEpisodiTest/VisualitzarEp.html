@@ -10,13 +10,24 @@
 </p>
 
 <div c:example="before">
+
+    <h3>Criteri d'acceptació 1</h3>
+    <p>
+        <b>En cas de que</b> l'usuari estigui loguejat <b>quan</b> vulgui veure totes un episodi <b>el sistema</b> reproduira l'episodi corresponent.
+    </p>
     <div c:example="Visualitzar Episodi">
         <span c:assert-equals="visualitzarEp()">Episodi visualitzat</span> Should be
-        <h3>Examples</h3>
+        <h3>T9.1 Cas d'èxit</h3>
     </div>
+
+
+    <h3>Criteri d'acceptació 2</h3>
+    <p>
+        <b>En cas de que</b> l'usuari estigui loguejat <b>quan</b> vulgui veure totes un episodi <b>el sistema</b> mostrarà un error.
+    </p>
     <div c:example="Visualitzar Episodi No Existent">
         <span c:assert-equals="visualitzarEpNoExistent()">No s'ha pogut visualtizar episodi</span> Should be
-        <h3>Examples</h3>
+        <h3>T9.2 Flux alternatiu (Episodi no existent)</h3>
     </div>
 </div>
 

@@ -6,7 +6,6 @@ class Controlador{
 -dades: STUB
 -dao: DAO_XML_STUB
 -facade: ControladorAcces
-
 +getCataleg()
 +registreUsuari(int id, String nom_real, int dni, String nacionalitat, String nickname,
  String password, String data_naixement, String adress, boolean vip)
@@ -210,16 +209,16 @@ Cataleg "1" *--> "*" Serie: consta
 LlistatUsuaris "1" *--> "*" Usuari: conté
 Serie "1" *--> "*" Temporada: conté
 Temporada "1" *--> "*" Episodi: conté
-Controlador --> STUB: controlem
-Controlador --> DAO_XML_STUB: necessita
-Controlador --> ControladorAcces: necessita
-ControladorAcces --> STUB: veu
+Controlador "1" --> "1" STUB: controlem
+Controlador "1" --> "1" DAO_XML_STUB: necessita
+Controlador "1" --> "1" ControladorAcces: necessita
+ControladorAcces "1" --> "1" STUB: veu
 Persona <|-- Administrador
 Persona <|-- Usuari
-Episodi --> SubscriureEpisodi: utilitza
-Episodi --> Valoracio: utilitza
-SubscriureEpisodi --> Usuari: utilitza
-Valoracio --> Usuari: utilitza
+Episodi "1" --> "1" SubscriureEpisodi: utilitza
+Episodi "1" --> "1" Valoracio: utilitza
+SubscriureEpisodi "1" --> "*" Usuari: utilitza
+Valoracio "1" --> "*" Usuari: utilitza
 DAO_XML_STUB ..|> DAO_STUB: implementa
-STUBXMLParser --> DAO_XML_STUB: instància
+STUBXMLParser "1" --> "1" DAO_XML_STUB: instància
 @enduml

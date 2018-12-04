@@ -12,21 +12,25 @@ public class SubscriureEpisodi {
     private Controlador cont;
     @BeforeExample
     public void init(){
-        cont = new Controlador("src/resources/STUB.xml");
+        cont = new Controlador();
         cont.registreUsuari("c20","Quim", "1111111","spain", "Yuste32", "12345678", "03/02/99", "Unknown", true);
         cont.logInUsuari("Yuste32", "12345678");
     }
 
 
     @Test
-    public int subscriureEpisodi() {
-        return cont.subscriureEpisodi(1,1,"bbad");
+    public boolean subscriureEpisodi() {
+        if(cont.subscriureEpisodi(1,1,"bbad") == 0)
+            return true;
+        return false;
     }
 
     @Test
-    public int episodiJaSubscrit() {
+    public boolean episodiJaSubscrit() {
         cont.subscriureEpisodi(1,1,"bbad");
-        return cont.subscriureEpisodi(1,1,"bbad");
+        if(cont.subscriureEpisodi(1,1,"bbad") == 0)
+            return true;
+        return false;
     }
 
 

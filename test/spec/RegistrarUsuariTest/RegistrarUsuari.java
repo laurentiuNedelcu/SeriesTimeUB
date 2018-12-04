@@ -14,7 +14,7 @@ public class RegistrarUsuari {
 
     @BeforeExample
     public void init(){
-        controller = new Controlador("src/resources/STUB.xml");
+        controller = new Controlador();
         nouUsuari = new Usuari("c20","Edward Elric", "1111111", "Xerxes",
                 "Alquimista de Acero", "LoveAlphonse", "00/00/1899", "Unknown", true);
     }

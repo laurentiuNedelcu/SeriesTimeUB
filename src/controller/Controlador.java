@@ -12,9 +12,9 @@ public class Controlador { //Funcionalitats de subscriure Episodi i valorar Epis
     private DAO_XML_STUB dao;
     private ControladorAcces facade;
 
-    public Controlador(String nomFitxer){
+    public Controlador(){
         dades = new STUB();
-        dao = new DAO_XML_STUB(nomFitxer,dades);
+        dao = new DAO_XML_STUB("src/resources/STUB.xml",dades);
         facade = new ControladorAcces(dades);
     }
 
