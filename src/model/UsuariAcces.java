@@ -1,12 +1,12 @@
-package controller;
+package model;
 
 import model.STUB;
 import model.Usuari;
 
-public class ControladorAcces {// Funcionalitats de loguejar i registrar usuari
+public class UsuariAcces {// Funcionalitats de loguejar i registrar usuari
     private STUB dades;
 
-    public ControladorAcces(STUB dades){
+    public UsuariAcces(STUB dades){
         this.dades = dades;
     }
 

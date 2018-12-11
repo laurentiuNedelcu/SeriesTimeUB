@@ -3,6 +3,7 @@ package controller;
 import model.STUB;
 import model.Serie;
 import model.Usuari;
+import model.UsuariAcces;
 import resources.DAO_XML_STUB;
 
 import java.util.List;
@@ -10,12 +11,12 @@ import java.util.List;
 public class Controlador { //Funcionalitats de subscriure Episodi i valorar Episodi i obtenir el catàleg
     private STUB dades;
     private DAO_XML_STUB dao;
-    private ControladorAcces facade;
+    private UsuariAcces facade;
 
     public Controlador(){
         dades = new STUB();
         dao = new DAO_XML_STUB("src/resources/STUB.xml",dades);
-        facade = new ControladorAcces(dades);
+        facade = new UsuariAcces(dades);
     }
 
     public List getCataleg(){
