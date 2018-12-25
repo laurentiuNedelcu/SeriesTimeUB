@@ -32,7 +32,7 @@ public class Episodi {
         return description;
     }
 
-    public String getData(String data) {
+    public String getData() {
         return data;
     }
 

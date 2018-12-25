@@ -13,8 +13,43 @@ public class Cataleg {
 
     public void addSerie(String id, String title, String descripcio){
         Serie se = new Serie(id, title, descripcio);
-        series.add(se);
+        if (series.size() == 0){
+            series.add(se);
+        } else {
+            String data = se.getTemporada(0).getEpisodi(0).getData();
+            int cont = 0;
+            for (Serie s: series) {
+                String aux = s.getTemporada(0).getEpisodi(0).getData();
+                if (compareData(data,aux)){
+                    series.add(cont,se);
+                } else{
+                    cont++;
+                }
+            }
+        }
     }
+
+    private boolean compareData(String novaData, String data){
+
+        String[] data1 = novaData.split("/");
+        String[] data2 = data.split("/");
+
+        int nouDia = Integer.parseInt(data1[0]);
+        int nouMes = Integer.parseInt(data1[1]);
+        int nouAny = Integer.parseInt(data1[2]);
+
+        int dia = Integer.parseInt(data2[0]);
+        int mes = Integer.parseInt(data2[1]);
+        int any = Integer.parseInt(data2[2]);
+
+        if (nouAny<any){ return true; }
+        if (nouMes<mes){ return true; }
+        if (nouDia<dia){ return true; }
+
+        return false;
+
+    }
+
 
     public void addTemp(String idSerie, String numTemporada, String numEpisodis){
         Iterator<Serie> it = series.iterator();
@@ -22,7 +57,7 @@ public class Cataleg {
             Serie se = it.next();
             if(se.getId().equals(idSerie)){
                 se.addTemporada(numTemporada, numEpisodis);
-            };
+            }
         }
     }
 
@@ -32,7 +67,7 @@ public class Cataleg {
             Serie se = it.next();
             if(se.getId().equals(idSerie)){
                 se.addEp(title, duration, idioma, description, data, numTemporada);
-            };
+            }
         }
     }
 
@@ -43,7 +78,7 @@ public class Cataleg {
             Serie se = it.next();
             if(se.getId().equals(ser)){
                 return se.visualitzarEpisodi(us, ep, temp);
-            };
+            }
         }
         return 1;
     }
@@ -54,7 +89,7 @@ public class Cataleg {
             Serie se = it.next();
             if(se.getId().equals(ser)){
                 return se.subscriureEpisodi(us, ep, temp);
-            };
+            }
         }
         return 1;
     }
@@ -65,7 +100,7 @@ public class Cataleg {
             Serie se = it.next();
             if(se.getId().equals(ser)){
                 return se.valorarEpisodi(us, puntuacio, data, ep, temp);
-            };
+            }
         }
         return "Serie no trobada";
     }

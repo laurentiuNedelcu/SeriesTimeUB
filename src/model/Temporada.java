@@ -16,6 +16,8 @@ public class Temporada {
         episodis.add(ep);
     }
 
+    public Episodi getEpisodi(int i){ return episodis.get(i); }
+
     public int visualitzarEpisodi(Usuari us, int ep){
         int numE = Integer.parseInt(numEpisodis);
         if(ep<=numE)
