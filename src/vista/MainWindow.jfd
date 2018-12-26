@@ -1,0 +1,102 @@
+JFDML JFormDesigner: "6.0.5.0.178" Java: "1.8.0_152-release" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {seq t {par l:::p {comp jScrollPane1:::p:150:p, seq {comp jLabel1:::p::p, space :::x, comp bInitCat:::p::p}}, space :::p, par l:::p {comp jScrollPane2:::p:150:p, seq {comp jLabel2:::p::p, space :::x, comp bInitWatchN:::p::p}}, space u:::p, par l:::p {comp jScrollPane4:::p:150:p, seq {comp jLabel4:::p::p, space :::x, comp bInitWatched:::p::p}}, space u:::p, par l {seq {comp jLabel3:::p::p, space s:::p, comp bInitNStarted:::p::p}, comp jScrollPane3:::p:150:p}}, seq l {space :p:234:p, comp jLabel5:::p::p, space :::x}}"
+			"$verticalGroup": "par l {seq t {space :::p, comp jLabel5:::p::p, space :::x, par l {par b:t {comp jLabel2::b:p::p, comp bInitWatchN::b:p::p, comp jLabel4::b:p::p}, par b:t {comp bInitCat::b:p::p, comp jLabel1::b:p::p}, par b:t {comp bInitWatched::b:p::p, comp jLabel3::b:p::p}, comp bInitNStarted::t:p::p}, space :::p, par t {comp jScrollPane1::t:p:387:p, comp jScrollPane2::t:p:387:p, comp jScrollPane3::t:p:387:p, comp jScrollPane4:::p:387:p}}}"
+		} ) {
+			name: "this"
+			"defaultCloseOperation": 3
+			add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+				name: "jScrollPane1"
+				add( new FormComponent( "javax.swing.JList" ) {
+					name: "catList"
+					"model": new javax.swing.DefaultListModel
+					auxiliary() {
+						"JavaCodeGenerator.typeParameters": "String"
+					}
+					addEvent( new FormEvent( "javax.swing.event.ListSelectionListener", "valueChanged", "catListValueChanged", true ) )
+				} )
+			} )
+			add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+				name: "jScrollPane2"
+				add( new FormComponent( "javax.swing.JList" ) {
+					name: "watchNList"
+					"model": new javax.swing.DefaultListModel
+					auxiliary() {
+						"JavaCodeGenerator.typeParameters": "String"
+					}
+					addEvent( new FormEvent( "javax.swing.event.ListSelectionListener", "valueChanged", "watchNListValueChanged", true ) )
+				} )
+			} )
+			add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+				name: "jScrollPane3"
+				add( new FormComponent( "javax.swing.JList" ) {
+					name: "notStartedList"
+					"model": new javax.swing.DefaultListModel
+					auxiliary() {
+						"JavaCodeGenerator.typeParameters": "String"
+					}
+					addEvent( new FormEvent( "javax.swing.event.ListSelectionListener", "valueChanged", "notStartedListValueChanged", true ) )
+				} )
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "jLabel1"
+				"text": "Cataleg"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "jLabel2"
+				"text": "Watch Next"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "jLabel3"
+				"text": "NotStarted"
+			} )
+			add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+				name: "jScrollPane4"
+				add( new FormComponent( "javax.swing.JList" ) {
+					name: "watchedList"
+					"model": new javax.swing.DefaultListModel
+					auxiliary() {
+						"JavaCodeGenerator.typeParameters": "String"
+					}
+					addEvent( new FormEvent( "javax.swing.event.ListSelectionListener", "valueChanged", "watchedListValueChanged", true ) )
+				} )
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "jLabel4"
+				"text": "Watched"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "jLabel5"
+				"font": new java.awt.Font( "Tahoma", 0, 24 )
+				"text": "Series Time UB"
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "bInitCat"
+				"text": "Init"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "bInitCatActionPerformed", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "bInitWatchN"
+				"text": "Init"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "bInitWatchNActionPerformed", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "bInitWatched"
+				"text": "Init"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "bInitWatchedActionPerformed", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "bInitNStarted"
+				"text": "Init"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "bInitNStartedActionPerformed", true ) )
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"size": new java.awt.Dimension( 400, 300 )
+			"location": new java.awt.Point( 0, 0 )
+		} )
+	}
+}

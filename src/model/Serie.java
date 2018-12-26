@@ -54,4 +54,13 @@ public class Serie {
     public String valorarEpisodi(Usuari us, int puntuacio, String data, int ep, int temp){
         return temporades.get(temp-1).valorarEpisodi(us,puntuacio,data,ep);
     }
+
+    public int numTemp(){
+        return temporades.size();
+    }
+
+    @Override
+    public String toString(){
+        return title;
+    }
 }

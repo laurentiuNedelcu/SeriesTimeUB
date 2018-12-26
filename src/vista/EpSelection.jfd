@@ -1,0 +1,48 @@
+JFDML JFormDesigner: "6.0.5.0.178" Java: "1.8.0_152-release" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {seq l {space :::p, par l {comp bSubs::l:p::p, comp lblSerie::l:p::p}, space :::p, par l:::p {comp bCancel:::::x, comp bVisual::l::107:x, comp lblTemp::l:p::p}, space :::x, par l {comp bValor:::p:107:p, comp lblEp:::p::p}, space :::p}}"
+			"$verticalGroup": "par l {seq t {space :::p, par b {comp lblSerie::b:p::p, comp lblTemp::b:p::p, comp lblEp::b:p::p}, space :p:28:p, par b {comp bSubs::b:p::p, comp bVisual::b:p::p, comp bValor::b:p::p}, space u:::p, comp bCancel:::p::p, space :::x}}"
+		} ) {
+			name: "this"
+			"defaultCloseOperation": 3
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "bSubs"
+				"text": "Susbcriure"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "bSubsActionPerformed", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "bVisual"
+				"text": "Visualitza"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "bVisualActionPerformed", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "bValor"
+				"text": "Valora"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "bValorActionPerformed", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "lblSerie"
+				"text": "Serie"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "lblTemp"
+				"text": "Temp"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "lblEp"
+				"text": "Ep"
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "bCancel"
+				"text": "Cancel·la"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "bCancelActionPerformed", true ) )
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"size": new java.awt.Dimension( 400, 300 )
+		} )
+	}
+}
