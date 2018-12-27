@@ -12,7 +12,7 @@ public class SubscriureEpisodi {
     private Controlador cont;
     @BeforeExample
     public void init(){
-        cont = new Controlador();
+        cont = Controlador.getInstance();
         cont.registreUsuari("c20","Quim", "1111111","spain", "Yuste32", "12345678", "03/02/99", "Unknown", true);
         cont.logInUsuari("Yuste32", "12345678");
     }

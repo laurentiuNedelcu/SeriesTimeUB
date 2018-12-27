@@ -24,8 +24,8 @@ public class EpSelection extends javax.swing.JFrame {
      * Creates new form EpSelection
      */
 
-    public EpSelection(Controlador contr, Serie se, int temp, int ep) {
-        this.contr = contr;
+    public EpSelection(Serie se, int temp, int ep) {
+        this.contr = Controlador.getInstance();
         this.se = se;
         this.temp = temp;
         this.ep = ep;
@@ -134,7 +134,7 @@ public class EpSelection extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bValorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bValorActionPerformed
-        ValorateSelection val = new ValorateSelection(contr, se, temp, ep);
+        ValorateSelection val = new ValorateSelection(se, temp, ep);
         val.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_bValorActionPerformed
@@ -145,7 +145,7 @@ public class EpSelection extends javax.swing.JFrame {
     }//GEN-LAST:event_bSubsActionPerformed
 
     private void bVisualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVisualActionPerformed
-        VisualSelection pb = new VisualSelection(contr,se,temp,ep);
+        VisualSelection pb = new VisualSelection(se,temp,ep);
         contr.visualitzarEpisodi(ep,temp,se.getId());
         pb.setVisible(true);
         this.dispose();

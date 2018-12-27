@@ -30,7 +30,7 @@ public class STUB_LogInSignIn extends JFrame {
         }else{
             this.controlador.logInUsuari(username, password);
             this.dispose();
-            MainWindow finestraPrincipal = new MainWindow(controlador);
+            MainWindow finestraPrincipal = new MainWindow();
             finestraPrincipal.setVisible(true);
         }
     }
@@ -43,9 +43,9 @@ public class STUB_LogInSignIn extends JFrame {
         this.dispose();
     }
 
-    public STUB_LogInSignIn(Controlador controlador) {
+    public STUB_LogInSignIn() {
         initComponents();
-        this.controlador = controlador;
+        this.controlador = Controlador.getInstance();
     }
 
     /**

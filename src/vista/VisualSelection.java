@@ -18,8 +18,8 @@ public class VisualSelection extends javax.swing.JFrame{
     int ep;
     Timer t;
 
-    public VisualSelection(Controlador contr, Serie se, int temp, int ep){
-        this.contr = contr;
+    public VisualSelection(Serie se, int temp, int ep){
+        this.contr = Controlador.getInstance();
         this.se = se;
         this.temp = temp;
         this.ep = ep;
@@ -57,7 +57,7 @@ public class VisualSelection extends javax.swing.JFrame{
 
 
     private void bValorActionPerformed(ActionEvent e) {
-        ValorateSelection val = new ValorateSelection(contr, se, temp, ep);
+        ValorateSelection val = new ValorateSelection(se, temp, ep);
         val.setVisible(true);
         this.dispose();
     }

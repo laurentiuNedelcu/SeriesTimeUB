@@ -11,6 +11,5 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="jdk1.8" level="project" />
     <orderEntry type="library" name="concordion-2.1.1" level="project" />
-    <orderEntry type="library" name="concordion-2.2.0" level="project" />
   </component>
 </module>

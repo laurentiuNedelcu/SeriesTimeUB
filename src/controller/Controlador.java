@@ -14,11 +14,15 @@ public class Controlador { //Funcionalitats de subscriure Episodi i valorar Epis
     private DAO_XML_STUB dao;
     private UsuariAcces facade;
 
-    public Controlador(){
+    static Controlador controlador = new Controlador();
+
+    private Controlador(){
         dades = new STUB();
         dao = new DAO_XML_STUB("src/resources/STUB.xml",dades);
         facade = new UsuariAcces(dades);
     }
+
+    public static Controlador getInstance(){ return controlador; }
 
     public List getCataleg(){
         return dades.getCataleg();

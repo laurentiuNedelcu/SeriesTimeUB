@@ -16,7 +16,7 @@ public class VisualitzarCat {
 
     @BeforeExample
     public void init(){
-        cont = new Controlador();
+        cont = Controlador.getInstance();
         cont.registreUsuari("c12","Usuari","193840","Here","NouUser","12345678","01/15/99","holi@gmail.con",false);
         cont.logInUsuari("NouUser","12345678");
         cont.subscriureEpisodi(1,1,"mrobot");

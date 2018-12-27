@@ -24,8 +24,8 @@ public class ValorateSelection extends javax.swing.JFrame {
     int temp;
     int ep;
 
-    public ValorateSelection(Controlador contr, Serie se, int temp, int ep) {
-        this.contr = contr;
+    public ValorateSelection(Serie se, int temp, int ep) {
+        this.contr = Controlador.getInstance();
         this.se = se;
         this.temp = temp;
         this.ep = ep;

@@ -35,8 +35,8 @@ public class MainWindow extends javax.swing.JFrame implements ObserverLlistas{
     /**
      * Creates new form MainWindow
      */
-    public MainWindow(Controlador contr) {
-        this.contr = contr;
+    public MainWindow() {
+        this.contr = Controlador.getInstance();
         contr.addObserverLlista(this);
         initComponents();
         initCat();
@@ -310,7 +310,7 @@ public class MainWindow extends javax.swing.JFrame implements ObserverLlistas{
                 }
                 else if(s.charAt(0) == 'E'){
                     epCat = i+1;
-                    EpSelection ep = new EpSelection(contr,seCat,tempCat,epCat);
+                    EpSelection ep = new EpSelection(seCat,tempCat,epCat);
                     ep.setVisible(true);
                     catList.clearSelection();
                 }
@@ -358,7 +358,7 @@ public class MainWindow extends javax.swing.JFrame implements ObserverLlistas{
                 }
                 else if(s.charAt(0) == 'E'){
                     epWatchNext = i+1;
-                    EpSelection ep = new EpSelection(contr,seWatchNext,tempWatchNext,epWatchNext);
+                    EpSelection ep = new EpSelection(seWatchNext,tempWatchNext,epWatchNext);
                     ep.setVisible(true);
                     watchNList.clearSelection();
                 }
@@ -406,7 +406,7 @@ public class MainWindow extends javax.swing.JFrame implements ObserverLlistas{
                 }
                 else if(s.charAt(0) == 'E'){
                     epWatched = i+1;
-                    EpSelection ep = new EpSelection(contr,seWatched,tempWatched,epWatched);
+                    EpSelection ep = new EpSelection(seWatched,tempWatched,epWatched);
                     ep.setVisible(true);
                     watchedList.clearSelection();
                 }
@@ -453,7 +453,7 @@ public class MainWindow extends javax.swing.JFrame implements ObserverLlistas{
                 }
                 else if(s.charAt(0) == 'E'){
                     epNotStarted = i+1;
-                    EpSelection ep = new EpSelection(contr,seNotStarted,tempNotStarted,epNotStarted);
+                    EpSelection ep = new EpSelection(seNotStarted,tempNotStarted,epNotStarted);
                     ep.setVisible(true);
                     notStartedList.clearSelection();
                 }

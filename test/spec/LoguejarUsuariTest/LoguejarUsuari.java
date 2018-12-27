@@ -9,12 +9,12 @@ import org.junit.runner.RunWith;
 
 @RunWith(ConcordionRunner.class)
 public class LoguejarUsuari {
-    private Controlador controller;
+    Controlador controller ;
     private Usuari user;
 
     @BeforeExample
     public void init(){
-        controller = new Controlador();
+        controller = Controlador.getInstance();
     }
 
     @Test

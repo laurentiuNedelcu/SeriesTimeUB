@@ -12,7 +12,7 @@ public class VisualitzarEp {
 
     @BeforeExample
     public void init(){
-        cont = new Controlador();
+        cont = Controlador.getInstance();
     }
 
     @Test
