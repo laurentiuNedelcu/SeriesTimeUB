@@ -43,6 +43,10 @@ public class STUB_LogInSignIn extends JFrame {
         this.dispose();
     }
 
+    private void jTextField1ActionPerformed(ActionEvent e) {
+        // TODO add your code here
+    }
+
     public STUB_LogInSignIn() {
         initComponents();
         this.controlador = Controlador.getInstance();
@@ -85,6 +89,7 @@ public class STUB_LogInSignIn extends JFrame {
         jTextField1.setFont(new Font("AppleGothic", Font.ITALIC, 12));
         jTextField1.setForeground(new Color(102, 102, 102));
         jTextField1.setText("Introdueix el nom d'usuari...");
+        jTextField1.addActionListener(e -> jTextField1ActionPerformed(e));
 
         //---- jLabel4 ----
         jLabel4.setFont(new Font("AppleGothic", Font.ITALIC, 12));

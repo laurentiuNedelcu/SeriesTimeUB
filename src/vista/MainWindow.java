@@ -1,6 +1,9 @@
 
 package vista;
 
+import java.awt.event.*;
+
+import com.sun.codemodel.internal.JOp;
 import controller.Controlador;
 import model.Serie;
 import model.Temporada;
@@ -35,6 +38,15 @@ public class MainWindow extends javax.swing.JFrame implements ObserverLlistas{
     /**
      * Creates new form MainWindow
      */
+    private void closeActionPerformed(ActionEvent e) {
+        // TODO add your code here
+    }
+
+    private void exitActionPerformed(ActionEvent e) {
+        this.dispose();
+        JOptionPane.showMessageDialog(null,"S'ha finalitzat la sessió amb èxit!", "Fins aviat!", JOptionPane.INFORMATION_MESSAGE);
+    }
+
     public MainWindow() {
         this.contr = Controlador.getInstance();
         contr.addObserverLlista(this);
@@ -48,7 +60,7 @@ public class MainWindow extends javax.swing.JFrame implements ObserverLlistas{
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    // Generated using JFormDesigner Evaluation license - Quim Yuste
+    // Generated using JFormDesigner Evaluation license - Marcos
     private void initComponents() {
         jScrollPane1 = new JScrollPane();
         catList = new JList<>();
@@ -67,6 +79,8 @@ public class MainWindow extends javax.swing.JFrame implements ObserverLlistas{
         bInitWatchN = new JButton();
         bInitWatched = new JButton();
         bInitNStarted = new JButton();
+        button1 = new JButton();
+        icon = new JLabel();
 
         //======== this ========
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -124,13 +138,16 @@ public class MainWindow extends javax.swing.JFrame implements ObserverLlistas{
         }
 
         //---- jLabel1 ----
-        jLabel1.setText("Cataleg");
+        jLabel1.setText("CAT\u00c1LEG D'ESTRENES");
+        jLabel1.setFont(new Font("AppleGothic", Font.ITALIC, 13));
 
         //---- jLabel2 ----
-        jLabel2.setText("Watch Next");
+        jLabel2.setText("PENDENTS");
+        jLabel2.setFont(new Font("AppleGothic", Font.ITALIC, 13));
 
         //---- jLabel3 ----
-        jLabel3.setText("NotStarted");
+        jLabel3.setText("PER COMEN\u00c7AR");
+        jLabel3.setFont(new Font("AppleGothic", Font.ITALIC, 13));
 
         //======== jScrollPane4 ========
         {
@@ -150,89 +167,111 @@ public class MainWindow extends javax.swing.JFrame implements ObserverLlistas{
         }
 
         //---- jLabel4 ----
-        jLabel4.setText("Watched");
+        jLabel4.setText("VISTES");
+        jLabel4.setFont(new Font("AppleGothic", Font.ITALIC, 13));
 
         //---- jLabel5 ----
-        jLabel5.setFont(new Font("Tahoma", Font.PLAIN, 24));
+        jLabel5.setFont(new Font("Impact", Font.ITALIC, 24));
         jLabel5.setText("Series Time UB");
 
         //---- bInitCat ----
-        bInitCat.setText("Init");
+        bInitCat.setText("Go Back!");
+        bInitCat.setFont(new Font("AppleGothic", Font.ITALIC, 13));
         bInitCat.addActionListener(e -> bInitCatActionPerformed(e));
 
         //---- bInitWatchN ----
-        bInitWatchN.setText("Init");
+        bInitWatchN.setText("Go Back!");
+        bInitWatchN.setFont(new Font("AppleGothic", Font.ITALIC, 13));
         bInitWatchN.addActionListener(e -> bInitWatchNActionPerformed(e));
 
         //---- bInitWatched ----
-        bInitWatched.setText("Init");
+        bInitWatched.setText("Go Back!");
+        bInitWatched.setFont(new Font("AppleGothic", Font.ITALIC, 13));
         bInitWatched.addActionListener(e -> bInitWatchedActionPerformed(e));
 
         //---- bInitNStarted ----
-        bInitNStarted.setText("Init");
+        bInitNStarted.setText("Go Back!");
+        bInitNStarted.setFont(new Font("AppleGothic", Font.ITALIC, 13));
         bInitNStarted.addActionListener(e -> bInitNStartedActionPerformed(e));
+
+        //---- button1 ----
+        button1.setText("Tanca la sessi\u00f3");
+        button1.setFont(new Font("AppleGothic", Font.ITALIC, 13));
+        button1.addActionListener(e -> {
+			closeActionPerformed(e);
+			exitActionPerformed(e);
+		});
+
+        //---- icon ----
+        icon.setIcon(new ImageIcon("/Users/marcosplazagonzalez/Desktop/A04-A04Vista/src/graphicalResources/little.png"));
 
         GroupLayout contentPaneLayout = new GroupLayout(contentPane);
         contentPane.setLayout(contentPaneLayout);
         contentPaneLayout.setHorizontalGroup(
             contentPaneLayout.createParallelGroup()
-                .addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
-                    .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jScrollPane1, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE)
+                .addGroup(contentPaneLayout.createSequentialGroup()
+                    .addGap(19, 19, 19)
+                    .addGroup(contentPaneLayout.createParallelGroup()
+                        .addComponent(jLabel5)
                         .addGroup(contentPaneLayout.createSequentialGroup()
                             .addComponent(jLabel1)
-                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(bInitCat)))
-                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                    .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jScrollPane2, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(bInitCat))
+                        .addGroup(contentPaneLayout.createSequentialGroup()
+                            .addGap(6, 6, 6)
+                            .addComponent(jScrollPane1, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE)))
+                    .addGap(27, 27, 27)
+                    .addGroup(contentPaneLayout.createParallelGroup()
+                        .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
+                            .addComponent(button1)
+                            .addGroup(contentPaneLayout.createSequentialGroup()
+                                .addComponent(jScrollPane2, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE)
+                                .addGap(26, 26, 26)
+                                .addComponent(jScrollPane4, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE)
+                                .addGap(26, 26, 26)
+                                .addComponent(jScrollPane3, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE)))
                         .addGroup(contentPaneLayout.createSequentialGroup()
                             .addComponent(jLabel2)
-                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(bInitWatchN)))
-                    .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                    .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jScrollPane4, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE)
-                        .addGroup(contentPaneLayout.createSequentialGroup()
+                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(bInitWatchN)
+                            .addGap(12, 12, 12)
                             .addComponent(jLabel4)
-                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(bInitWatched)))
-                    .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                    .addGroup(contentPaneLayout.createParallelGroup()
-                        .addGroup(contentPaneLayout.createSequentialGroup()
-                            .addComponent(jLabel3)
+                            .addGap(24, 24, 24)
+                            .addComponent(bInitWatched)
                             .addGap(18, 18, 18)
-                            .addComponent(bInitNStarted))
-                        .addComponent(jScrollPane3, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE)))
-                .addGroup(contentPaneLayout.createSequentialGroup()
-                    .addGap(234, 234, 234)
-                    .addComponent(jLabel5)
-                    .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jLabel3)
+                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(contentPaneLayout.createParallelGroup()
+                                .addComponent(icon)
+                                .addComponent(bInitNStarted))))
+                    .addContainerGap(13, Short.MAX_VALUE))
         );
         contentPaneLayout.setVerticalGroup(
             contentPaneLayout.createParallelGroup()
                 .addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(jLabel5)
-                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGap(19, 19, 19)
                     .addGroup(contentPaneLayout.createParallelGroup()
-                        .addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2)
-                            .addComponent(bInitWatchN)
-                            .addComponent(jLabel4))
-                        .addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                            .addComponent(bInitCat)
-                            .addComponent(jLabel1))
-                        .addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                            .addComponent(bInitWatched)
-                            .addComponent(jLabel3))
-                        .addComponent(bInitNStarted, GroupLayout.Alignment.TRAILING))
+                        .addComponent(jLabel5)
+                        .addComponent(icon))
+                    .addGap(18, 18, 18)
+                    .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel1)
+                        .addComponent(bInitCat)
+                        .addComponent(bInitWatched)
+                        .addComponent(jLabel3)
+                        .addComponent(jLabel2)
+                        .addComponent(jLabel4)
+                        .addComponent(bInitWatchN)
+                        .addComponent(bInitNStarted))
                     .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                    .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
+                    .addGroup(contentPaneLayout.createParallelGroup()
                         .addComponent(jScrollPane1, GroupLayout.PREFERRED_SIZE, 387, GroupLayout.PREFERRED_SIZE)
                         .addComponent(jScrollPane2, GroupLayout.PREFERRED_SIZE, 387, GroupLayout.PREFERRED_SIZE)
                         .addComponent(jScrollPane3, GroupLayout.PREFERRED_SIZE, 387, GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jScrollPane4, GroupLayout.PREFERRED_SIZE, 387, GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jScrollPane4, GroupLayout.PREFERRED_SIZE, 387, GroupLayout.PREFERRED_SIZE))
+                    .addGap(18, 18, 18)
+                    .addComponent(button1)
+                    .addContainerGap(20, Short.MAX_VALUE))
         );
         pack();
         setLocationRelativeTo(getOwner());
@@ -462,7 +501,7 @@ public class MainWindow extends javax.swing.JFrame implements ObserverLlistas{
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - Quim Yuste
+    // Generated using JFormDesigner Evaluation license - Marcos
     private JScrollPane jScrollPane1;
     private JList<String> catList;
     private JScrollPane jScrollPane2;
@@ -480,26 +519,17 @@ public class MainWindow extends javax.swing.JFrame implements ObserverLlistas{
     private JButton bInitWatchN;
     private JButton bInitWatched;
     private JButton bInitNStarted;
+    private JButton button1;
+    private JLabel icon;
 
     @Override
     public void updateLlistas() {
         initCat();
         initWatched();
-        initWatchNext();
         initNotStarted();
+        initWatchNext();
     }
     // End of variables declaration//GEN-END:variables
 }
 
-/*
-
-    public static void main(String args[]) {
-        Controlador contr = new Controlador();
-        contr.registreUsuari("userTest","Testeig","1234","Bcn","Test","12345678","03/02","Bcn C/Proba nº1",false);
-        contr.logInUsuari("Test","12345678");
-        MainWindow vista  = new MainWindow(contr);
-        vista.setVisible(true);
-
-    }
- */
 
