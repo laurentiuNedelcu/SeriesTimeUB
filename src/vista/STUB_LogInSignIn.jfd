@@ -1,0 +1,74 @@
+JFDML JFormDesigner: "6.0.5.0.178" Java: "1.8.0_152-release" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {seq l {space :p:28:p, par l {seq t {par t {seq t {par l {comp jLabel4::l:p::p, comp jPasswordField1::l:p:172:p, comp jTextField1::l:::x}, space ::53:x, par l {comp SignIn:::p::p, comp jLabel6:::p::p}}, seq {space :0:0:x, comp jLabel2:::p::p}, seq t {comp jLabel3:::p:171:p, space ::134:x, comp label1:::p::p}, seq l {comp LogIn:::p::p, space ::179:x, comp cancel1:::p::p}}, space :p:36:p}, seq {comp jLabel5:::p::p, space :0:0:x}}}}"
+			"$verticalGroup": "par l {seq l {space :p:19:p, par l {comp label1:::p::p, comp jLabel3:::p:36:p}, space :p:18:p, comp jLabel2:::p::p, space s:::p, par b {comp jLabel4::b:p::p, comp jLabel6::b:p::p}, space :::p, par b {comp SignIn::b:p::p, comp jTextField1::b:p::p}, space :p:25:p, comp jLabel5:::p::p, space :::p, comp jPasswordField1:::p::p, space s:::p, par b {comp LogIn::b:p::p, comp cancel1::b:p::p}, space ::12:x}}"
+		} ) {
+			name: "this"
+			"defaultCloseOperation": 3
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "jLabel3"
+				"font": new java.awt.Font( "Impact", 2, 26 )
+				"text": "SERIES TIME UB"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "jLabel2"
+				"font": new java.awt.Font( "AppleGothic", 2, 14 )
+				"text": "Inici de sessió"
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "jTextField1"
+				"font": new java.awt.Font( "AppleGothic", 2, 12 )
+				"foreground": new java.awt.Color( 102, 102, 102, 255 )
+				"text": "Introdueix el nom d'usuari..."
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "jTextField1ActionPerformed", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "jLabel4"
+				"font": new java.awt.Font( "AppleGothic", 2, 12 )
+				"text": "Nom d'usuari:"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "jLabel5"
+				"font": new java.awt.Font( "AppleGothic", 2, 12 )
+				"text": "Contrasenya:"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "jLabel6"
+				"font": new java.awt.Font( "AppleGothic", 2, 12 )
+				"text": "Encara no t'has registrat?"
+			} )
+			add( new FormComponent( "javax.swing.JPasswordField" ) {
+				name: "jPasswordField1"
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "SignIn"
+				"font": new java.awt.Font( "AppleGothic", 2, 12 )
+				"text": "Registra't"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "SignInActionPerformed", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "LogIn"
+				"font": new java.awt.Font( "AppleGothic", 2, 12 )
+				"text": "Inicia la sessió"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "LogInActionPerformed", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label1"
+				"icon": new com.jformdesigner.model.SwingIcon( 1, "/Users/marcosplazagonzalez/Desktop/A04-A04Vista/src/graphicalResources/little.png" )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "cancel1"
+				"text": "Sortir"
+				"font": new java.awt.Font( "AppleGothic", 2, 13 )
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "cancel1ActionPerformed", true ) )
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"size": new java.awt.Dimension( 435, 340 )
+			"location": new java.awt.Point( 0, 0 )
+		} )
+	}
+}
