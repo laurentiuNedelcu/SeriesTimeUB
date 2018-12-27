@@ -16,11 +16,19 @@ import javax.swing.LayoutStyle;
 
 
 public class EpSelection extends javax.swing.JFrame {
-
+    Controlador contr;
+    Serie se;
+    int temp;
+    int ep;
     /**
      * Creates new form EpSelection
      */
     public EpSelection(Controlador contr, Serie se, int temp, int ep) {
+        this.contr = contr;
+        this.se = se;
+        this.temp = temp;
+        this.ep = ep;
+
         initComponents();
         String s;
         lblSerie.setText(se.getTitle());
@@ -120,7 +128,8 @@ public class EpSelection extends javax.swing.JFrame {
     }//GEN-LAST:event_bValorActionPerformed
 
     private void bSubsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSubsActionPerformed
-        // TODO add your handling code here:
+        contr.subscriureEpisodi(ep,temp,se.getId());
+        this.dispose();
     }//GEN-LAST:event_bSubsActionPerformed
 
     private void bVisualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVisualActionPerformed

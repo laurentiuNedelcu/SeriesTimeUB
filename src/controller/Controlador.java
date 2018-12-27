@@ -5,6 +5,7 @@ import model.Serie;
 import model.Usuari;
 import model.UsuariAcces;
 import resources.DAO_XML_STUB;
+import vista.ObserverLlistas;
 
 import java.util.List;
 
@@ -40,6 +41,10 @@ public class Controlador { //Funcionalitats de subscriure Episodi i valorar Epis
 
     public String valorarEpisodi(int puntuacio, String data, int ep, int temp, String ser){
         return dades.valorarEpisodi(puntuacio,data,ep,temp,ser);
+    }
+
+    public void addObserverLlista(ObserverLlistas o){
+        dades.registerObserverLlistas(o);
     }
 
     public List<Serie> llistaDeSeriesComencades(){

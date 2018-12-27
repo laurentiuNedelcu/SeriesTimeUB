@@ -13,7 +13,7 @@ import javax.swing.GroupLayout;
 import javax.swing.LayoutStyle;
 
 
-public class MainWindow extends javax.swing.JFrame {
+public class MainWindow extends javax.swing.JFrame implements ObserverLlistas{
     Controlador contr;
 
     Serie seCat;
@@ -37,8 +37,12 @@ public class MainWindow extends javax.swing.JFrame {
      */
     public MainWindow(Controlador contr) {
         this.contr = contr;
+        contr.addObserverLlista(this);
         initComponents();
         initCat();
+        initWatchNext();
+        initWatched();
+        initNotStarted();
     }
 
 
@@ -239,15 +243,15 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_catListValueChanged
 
     private void watchNListValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_watchNListValueChanged
-        // TODO add your handling code here:
+        actWatchNext();
     }//GEN-LAST:event_watchNListValueChanged
 
     private void watchedListValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_watchedListValueChanged
-        // TODO add your handling code here:
+        actWatched();
     }//GEN-LAST:event_watchedListValueChanged
 
     private void notStartedListValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_notStartedListValueChanged
-        // TODO add your handling code here:
+        actNotStarted();
     }//GEN-LAST:event_notStartedListValueChanged
 
     private void bInitCatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bInitCatActionPerformed
@@ -255,17 +259,27 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_bInitCatActionPerformed
 
     private void bInitWatchNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bInitWatchNActionPerformed
-        // TODO add your handling code here:
+        initWatchNext();
     }//GEN-LAST:event_bInitWatchNActionPerformed
 
     private void bInitWatchedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bInitWatchedActionPerformed
-        // TODO add your handling code here:
+        initWatched();
     }//GEN-LAST:event_bInitWatchedActionPerformed
 
     private void bInitNStartedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bInitNStartedActionPerformed
-        // TODO add your handling code here:
+        initNotStarted();
     }//GEN-LAST:event_bInitNStartedActionPerformed
 
+
+    public void initCat(){
+        List list = contr.getCataleg();
+        DefaultListModel model = new DefaultListModel();
+        Iterator<Serie> it = list.iterator();
+        while(it.hasNext()){
+            model.addElement(it.next());
+        }
+        catList.setModel(model);
+    }
 
     public void actCat(){
         if(!catList.isSelectionEmpty()){
@@ -303,15 +317,150 @@ public class MainWindow extends javax.swing.JFrame {
             }
         }
     }
-    public void initCat(){
-        List list = contr.getCataleg();
+
+
+    public void initWatchNext(){
+        List list = contr.llistaDeSeriesComencades();
         DefaultListModel model = new DefaultListModel();
         Iterator<Serie> it = list.iterator();
         while(it.hasNext()){
             model.addElement(it.next());
         }
-        catList.setModel(model);
+        watchNList.setModel(model);
     }
+
+    public void actWatchNext(){
+        if(!watchNList.isSelectionEmpty()){
+            int i = watchNList.getSelectedIndex();
+            DefaultListModel model = (DefaultListModel) watchNList.getModel();
+            DefaultListModel newModel = new DefaultListModel();
+            if (model.elementAt(i) instanceof Serie){
+                Serie se = (Serie) model.elementAt(i);
+                seWatchNext = se;
+                for(i = 0; i<se.numTemp(); i++){
+                    String t = "Temporada ";
+                    t += Integer.toString(i+1);
+                    newModel.addElement(t);
+                }
+                watchNList.setModel(newModel);
+            }
+            else{
+                String s = (String) model.elementAt(i);
+                if(s.charAt(0) == 'T'){
+                    tempWatchNext = i+1;
+                    Temporada temp = seWatchNext.getTemporada(tempWatchNext-1);
+                    for(i = 0; i<temp.numEp();i++){
+                        String t = "Episodi ";
+                        t += Integer.toString(i+1);
+                        newModel.addElement(t);
+                    }
+                    watchNList.setModel(newModel);
+                }
+                else if(s.charAt(0) == 'E'){
+                    epWatchNext = i+1;
+                    EpSelection ep = new EpSelection(contr,seWatchNext,tempWatchNext,epWatchNext);
+                    ep.setVisible(true);
+                    watchNList.clearSelection();
+                }
+            }
+        }
+    }
+
+
+    public void initWatched(){
+        List list = contr.llistaDeSeriesAcabades();
+        DefaultListModel model = new DefaultListModel();
+        Iterator<Serie> it = list.iterator();
+        while(it.hasNext()){
+            model.addElement(it.next());
+        }
+        watchedList.setModel(model);
+    }
+
+    public void actWatched(){
+        if(!watchedList.isSelectionEmpty()){
+            int i = watchedList.getSelectedIndex();
+            DefaultListModel model = (DefaultListModel) watchedList.getModel();
+            DefaultListModel newModel = new DefaultListModel();
+            if (model.elementAt(i) instanceof Serie){
+                Serie se = (Serie) model.elementAt(i);
+                seWatched = se;
+                for(i = 0; i<se.numTemp(); i++){
+                    String t = "Temporada ";
+                    t += Integer.toString(i+1);
+                    newModel.addElement(t);
+                }
+                watchedList.setModel(newModel);
+            }
+            else{
+                String s = (String) model.elementAt(i);
+                if(s.charAt(0) == 'T'){
+                    tempWatched = i+1;
+                    Temporada temp = seWatched.getTemporada(tempWatched-1);
+                    for(i = 0; i<temp.numEp();i++){
+                        String t = "Episodi ";
+                        t += Integer.toString(i+1);
+                        newModel.addElement(t);
+                    }
+                    watchedList.setModel(newModel);
+                }
+                else if(s.charAt(0) == 'E'){
+                    epWatched = i+1;
+                    EpSelection ep = new EpSelection(contr,seWatched,tempWatched,epWatched);
+                    ep.setVisible(true);
+                    watchedList.clearSelection();
+                }
+            }
+        }
+    }
+
+    public void initNotStarted(){
+        List list = contr.llistaDeSeriesNoComencades();
+        DefaultListModel model = new DefaultListModel();
+        Iterator<Serie> it = list.iterator();
+        while(it.hasNext()){
+            model.addElement(it.next());
+        }
+        notStartedList.setModel(model);
+    }
+
+    public void actNotStarted(){
+        if(!notStartedList.isSelectionEmpty()){
+            int i = notStartedList.getSelectedIndex();
+            DefaultListModel model = (DefaultListModel) notStartedList.getModel();
+            DefaultListModel newModel = new DefaultListModel();
+            if (model.elementAt(i) instanceof Serie){
+                Serie se = (Serie) model.elementAt(i);
+                seNotStarted = se;
+                for(i = 0; i<se.numTemp(); i++){
+                    String t = "Temporada ";
+                    t += Integer.toString(i+1);
+                    newModel.addElement(t);
+                }
+                notStartedList.setModel(newModel);
+            }
+            else{
+                String s = (String) model.elementAt(i);
+                if(s.charAt(0) == 'T'){
+                    tempNotStarted = i+1;
+                    Temporada temp = seNotStarted.getTemporada(tempNotStarted-1);
+                    for(i = 0; i<temp.numEp();i++){
+                        String t = "Episodi ";
+                        t += Integer.toString(i+1);
+                        newModel.addElement(t);
+                    }
+                    notStartedList.setModel(newModel);
+                }
+                else if(s.charAt(0) == 'E'){
+                    epNotStarted = i+1;
+                    EpSelection ep = new EpSelection(contr,seNotStarted,tempNotStarted,epNotStarted);
+                    ep.setVisible(true);
+                    notStartedList.clearSelection();
+                }
+            }
+        }
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // Generated using JFormDesigner Evaluation license - Quim Yuste
     private JScrollPane jScrollPane1;
@@ -331,7 +480,26 @@ public class MainWindow extends javax.swing.JFrame {
     private JButton bInitWatchN;
     private JButton bInitWatched;
     private JButton bInitNStarted;
+
+    @Override
+    public void updateLlistas() {
+        initCat();
+        initWatched();
+        initWatchNext();
+        initNotStarted();
+    }
     // End of variables declaration//GEN-END:variables
 }
 
+/*
+
+    public static void main(String args[]) {
+        Controlador contr = new Controlador();
+        contr.registreUsuari("userTest","Testeig","1234","Bcn","Test","12345678","03/02","Bcn C/Proba nº1",false);
+        contr.logInUsuari("Test","12345678");
+        MainWindow vista  = new MainWindow(contr);
+        vista.setVisible(true);
+
+    }
+ */
 

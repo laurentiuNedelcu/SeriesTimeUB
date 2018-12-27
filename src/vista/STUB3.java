@@ -2,8 +2,7 @@ package vista;
 
 import controller.Controlador;
 
-public class STUB {
-
+public class STUB3 {
     public static void main(String args[]) {
         Controlador contr = new Controlador();
         contr.registreUsuari("userTest","Testeig","1234","Bcn","Test","12345678","03/02","Bcn C/Proba nº1",false);

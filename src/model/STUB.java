@@ -1,14 +1,20 @@
 package model;
 
+import vista.ObserverLlistas;
+
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
-public class STUB {
+public class STUB implements SubjectLlistas{
     private Cataleg cat;
     private LlistatUsuaris llistat_usuaris;
+    private ArrayList<ObserverLlistas> obsLlistas;
 
     public STUB(){
         cat = new Cataleg();
         llistat_usuaris = new LlistatUsuaris();
+        obsLlistas = new ArrayList<>();
     }
 
     public LlistatUsuaris getLlistat_usuaris(){
@@ -40,27 +46,39 @@ public class STUB {
     }
 
     public int visualitzarEpisodi(int ep, int temp, String ser){
-        return cat.visualitzarEpisodi(llistat_usuaris.getUsuariActual(), ep, temp, ser);
+        int i = cat.visualitzarEpisodi(llistat_usuaris.getUsuariActual(), ep, temp, ser);
+        notifyObserversLlistas();
+        return i;
     }
 
     public int visualitzarEpisodi(String us, int ep, int temp, String ser){
-        return cat.visualitzarEpisodi(llistat_usuaris.getUsuari(us), ep, temp, ser);
+        int i = cat.visualitzarEpisodi(llistat_usuaris.getUsuari(us), ep, temp, ser);
+        notifyObserversLlistas();
+        return i;
     }
 
     public int subscriureEpisodi(int ep, int temp, String ser){
-        return cat.subscriureEpisodi(llistat_usuaris.getUsuariActual(), ep, temp, ser);
+        int i = cat.subscriureEpisodi(llistat_usuaris.getUsuariActual(), ep, temp, ser);
+        notifyObserversLlistas();;
+        return i;
     }
 
     public int subscriureEpisodi(String client, int ep, int temp, String ser){
-        return cat.subscriureEpisodi(llistat_usuaris.getUsuari(client), ep, temp, ser);
+        int i = cat.subscriureEpisodi(llistat_usuaris.getUsuari(client), ep, temp, ser);
+        notifyObserversLlistas();
+        return i;
     }
 
     public String valorarEpisodi(int puntuacio, String data, int ep, int temp, String ser){
-        return cat.valorarEpisodi(llistat_usuaris.getUsuariActual(), puntuacio, data, ep, temp, ser);
+        String s = cat.valorarEpisodi(llistat_usuaris.getUsuariActual(), puntuacio, data, ep, temp, ser);
+        notifyObserversLlistas();
+        return s;
     }
 
     public String valorarEpisodi(String us, int puntuacio, String data, int ep, int temp, String ser){
-        return cat.valorarEpisodi(llistat_usuaris.getUsuari(us), puntuacio, data, ep, temp, ser);
+        String s = cat.valorarEpisodi(llistat_usuaris.getUsuari(us), puntuacio, data, ep, temp, ser);
+        notifyObserversLlistas();
+        return s;
     }
 
     public List<Serie> getLlistatSeriesComencades(){
@@ -73,5 +91,29 @@ public class STUB {
 
     public List<Serie> getLlistatSeriesNoComencades(){
         return cat.getLlistatSeriesNoComencades(llistat_usuaris.getUsuariActual());
+    }
+
+    @Override
+    public void registerObserverLlistas(ObserverLlistas o) {
+        obsLlistas.add(o);
+    }
+
+    @Override
+    public void removeObserverLlistas(ObserverLlistas o) {
+        Iterator<ObserverLlistas> it = obsLlistas.iterator();
+        while(it.hasNext()){
+            ObserverLlistas ob = it.next();
+            if (ob.equals(o))
+                obsLlistas.remove(ob);
+        }
+    }
+
+    @Override
+    public void notifyObserversLlistas() {
+        Iterator<ObserverLlistas> it = obsLlistas.iterator();
+        while(it.hasNext()){
+            ObserverLlistas ob = it.next();
+            ob.updateLlistas();
+        }
     }
 }
