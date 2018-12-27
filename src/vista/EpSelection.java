@@ -43,7 +43,7 @@ public class EpSelection extends javax.swing.JFrame {
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    // Generated using JFormDesigner Evaluation license - Quim Yuste
+    // Generated using JFormDesigner Evaluation license - Laurentiu Nedelcu
     private void initComponents() {
         bSubs = new JButton();
         bVisual = new JButton();
@@ -133,7 +133,8 @@ public class EpSelection extends javax.swing.JFrame {
     }//GEN-LAST:event_bSubsActionPerformed
 
     private void bVisualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVisualActionPerformed
-        // TODO add your handling code here:
+        VisualSelection pb = new VisualSelection(contr,this);
+        pb.setVisible(true);
     }//GEN-LAST:event_bVisualActionPerformed
 
     private void bCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCancelActionPerformed
@@ -145,7 +146,7 @@ public class EpSelection extends javax.swing.JFrame {
      */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - Quim Yuste
+    // Generated using JFormDesigner Evaluation license - Laurentiu Nedelcu
     private JButton bSubs;
     private JButton bVisual;
     private JButton bValor;
