@@ -36,6 +36,10 @@ public class Serie {
         te.addEpisodi(title, duration, idioma, description, data);
     }
 
+    public boolean isVisualitzat(Usuari us, int ep, int temp){
+        return temporades.get(temp-1).isVisualitzat(us,ep);
+    }
+
     public int visualitzarEpisodi(Usuari us, int ep, int temp){
         return temporades.get(temp-1).visualitzarEpisodi(us,ep);
     }

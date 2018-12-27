@@ -43,6 +43,10 @@ public class Controlador { //Funcionalitats de subscriure Episodi i valorar Epis
         return dades.valorarEpisodi(puntuacio,data,ep,temp,ser);
     }
 
+    public boolean isSubscrit(int ep, int temp, String ser){
+        return dades.isVisualitzat(ep,temp,ser);
+    }
+
     public void addObserverLlista(ObserverLlistas o){
         dades.registerObserverLlistas(o);
     }

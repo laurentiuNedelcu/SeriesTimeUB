@@ -18,6 +18,13 @@ public class Temporada {
 
     public Episodi getEpisodi(int i){ return episodis.get(i); }
 
+    public boolean isVisualitzat(Usuari us, int ep){
+        int numE = Integer.parseInt(numEpisodis);
+        if(ep<=numE)
+            return episodis.get(ep-1).estaVisualitzat(us);
+        return false;
+    }
+
     public int visualitzarEpisodi(Usuari us, int ep){
         int numE = Integer.parseInt(numEpisodis);
         if(ep<=numE)

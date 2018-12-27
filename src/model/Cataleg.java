@@ -37,6 +37,16 @@ public class Cataleg {
         }
     }
 
+    public boolean isVisualitzat(Usuari us, int ep, int temp, String ser){
+        Iterator<Serie> it = series.iterator();
+        while(it.hasNext()){
+            Serie se = it.next();
+            if(se.getId().equals(ser)){
+                return se.isVisualitzat(us, ep, temp);
+            }
+        }
+        return false;
+    }
 
     public int visualitzarEpisodi(Usuari us, int ep, int temp, String ser){
         Iterator<Serie> it = series.iterator();

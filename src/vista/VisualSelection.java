@@ -2,6 +2,7 @@ package vista;
 
 import controller.Controlador;
 import model.Episodi;
+import model.Serie;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -10,18 +11,25 @@ import javax.swing.GroupLayout;
 import javax.swing.LayoutStyle;
 //Este es lo bo, ho faig pa poder fer un altre commit
 public class VisualSelection extends javax.swing.JFrame{
-    public VisualSelection(Controlador contr, EpSelection ep){
+
+    Controlador contr;
+    Serie se;
+    int temp;
+    int ep;
+    Timer t;
+
+    public VisualSelection(Controlador contr, Serie se, int temp, int ep){
         this.contr = contr;
+        this.se = se;
+        this.temp = temp;
         this.ep = ep;
 
         initComponents();
         setLocationRelativeTo(null);
         t = new Timer(10,actions);
+        bValor.setEnabled(false);
     }
 
-    Controlador contr;
-    EpSelection ep;
-    Timer t;
     private int sec, cs;
     private ActionListener actions = new ActionListener() {
         @Override
@@ -49,7 +57,9 @@ public class VisualSelection extends javax.swing.JFrame{
 
 
     private void bValorActionPerformed(ActionEvent e) {
-        // TODO add your code here
+        ValorateSelection val = new ValorateSelection(contr, se, temp, ep);
+        val.setVisible(true);
+        this.dispose();
     }
 
     private void bCancelActionPerformed(ActionEvent e) {

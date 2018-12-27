@@ -45,6 +45,10 @@ public class STUB implements SubjectLlistas{
         return cat.getCataleg();
     }
 
+    public boolean isVisualitzat(int ep, int temp, String ser){
+        return cat.isVisualitzat(llistat_usuaris.getUsuariActual(), ep, temp, ser);
+    }
+
     public int visualitzarEpisodi(int ep, int temp, String ser){
         int i = cat.visualitzarEpisodi(llistat_usuaris.getUsuariActual(), ep, temp, ser);
         notifyObserversLlistas();

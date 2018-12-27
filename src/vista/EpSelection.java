@@ -23,6 +23,7 @@ public class EpSelection extends javax.swing.JFrame {
     /**
      * Creates new form EpSelection
      */
+
     public EpSelection(Controlador contr, Serie se, int temp, int ep) {
         this.contr = contr;
         this.se = se;
@@ -30,6 +31,8 @@ public class EpSelection extends javax.swing.JFrame {
         this.ep = ep;
 
         initComponents();
+        actBVisualitzat();
+
         String s;
         lblSerie.setText(se.getTitle());
         s = "Temp: ";
@@ -40,6 +43,13 @@ public class EpSelection extends javax.swing.JFrame {
         lblEp.setText(s);
     }
 
+    private void actBVisualitzat(){
+        if(contr.isSubscrit(ep,temp,se.getId())){
+            bValor.setEnabled(true);
+        }else{
+            bValor.setEnabled(false);
+        }
+    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -124,17 +134,21 @@ public class EpSelection extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bValorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bValorActionPerformed
-        // TODO add your handling code here:
+        ValorateSelection val = new ValorateSelection(contr, se, temp, ep);
+        val.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_bValorActionPerformed
 
     private void bSubsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSubsActionPerformed
         contr.subscriureEpisodi(ep,temp,se.getId());
-        this.dispose();
+        actBVisualitzat();
     }//GEN-LAST:event_bSubsActionPerformed
 
     private void bVisualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVisualActionPerformed
-        VisualSelection pb = new VisualSelection(contr,this);
+        VisualSelection pb = new VisualSelection(contr,se,temp,ep);
+        contr.visualitzarEpisodi(ep,temp,se.getId());
         pb.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_bVisualActionPerformed
 
     private void bCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCancelActionPerformed

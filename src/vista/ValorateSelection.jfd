@@ -1,0 +1,67 @@
+JFDML JFormDesigner: "6.0.5.0.178" Java: "1.8.0_152-release" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {seq l {space :::p, par t:::p {comp bWow:::::x, comp bGood:::::x, comp bFunny::::93:x}, space :p:9:p, par l {comp bMeh::::93:x, comp bSad:::::x, comp bBad:::::x}, space :::p}, seq l {space :p:39:p, comp lblTemp:::p::p, space :::x, comp lblEp:::p::p, space :p:53:p}, seq l {space :::p, comp bCancel:::::x, space :::p}, seq l {space :::p, comp lblSe:::::x, space :::p}}"
+			"$verticalGroup": "par l {seq {space :p:27:p, comp lblSe:::p::p, space u:::p, par b {comp lblTemp::b:p::p, comp lblEp::b:p::p}, space u:::p, par b {comp bGood::b:p::p, comp bSad::b:p::p}, space :::p, par b {comp bMeh::b:p::p, comp bFunny::b:p::p}, space :::p, par b {comp bWow::b:p::p, comp bBad::b:p::p}, space s:::p, comp bCancel:::p::p, space ::22:x}}"
+		} ) {
+			name: "this"
+			"defaultCloseOperation": 3
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "bGood"
+				"text": "Good"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "bGoodActionPerformed", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "bFunny"
+				"text": "Funny"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "bFunnyActionPerformed", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "bWow"
+				"text": "Wow"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "bWowActionPerformed", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "bSad"
+				"text": "Sad"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "bSadActionPerformed", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "bMeh"
+				"text": "Meh"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "bMehActionPerformed", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "bBad"
+				"text": "Bad"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "bBadActionPerformed", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "lblSe"
+				"font": new java.awt.Font( "Tahoma", 0, 18 )
+				"horizontalAlignment": 0
+				"text": "Serie"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "lblTemp"
+				"horizontalAlignment": 0
+				"text": "Temp"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "lblEp"
+				"horizontalAlignment": 0
+				"text": "Ep"
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "bCancel"
+				"text": "Cancel·la"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "bCancelActionPerformed", true ) )
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"size": new java.awt.Dimension( 400, 300 )
+		} )
+	}
+}
