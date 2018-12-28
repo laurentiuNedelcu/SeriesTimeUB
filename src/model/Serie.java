@@ -30,6 +30,10 @@ public class Serie {
         return title;
     }
 
+    public String getDescripcio(){
+        return descripcio;
+    }
+
     public void addEp(String title, String duration, String idioma, String description, String data, String numTemporada) {
         int tempN = Integer.parseInt(numTemporada)-1;
         Temporada te = temporades.get(tempN);

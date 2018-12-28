@@ -4,8 +4,8 @@ new FormModel {
 	contentType: "form/swing"
 	root: new FormRoot {
 		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-			"$horizontalGroup": "par l {seq l {space :p:19:p, par l {comp jLabel5:::p::p, seq {comp jLabel1:::p::p, space s:::p, comp bInitCat:::p::p}, seq {space :6:6:p, comp jScrollPane1:::p:150:p}}, space :p:27:p, par l {par t:l {comp button1:::p::p, seq {comp jScrollPane2:::p:150:p, space :p:26:p, comp jScrollPane4:::p:150:p, space :p:26:p, comp jScrollPane3:::p:150:p}}, seq l {comp jLabel2:::p::p, space :::p, comp bInitWatchN:::p::p, space :p:12:p, comp jLabel4:::p::p, space :p:24:p, comp bInitWatched:::p::p, space s:::p, comp jLabel3:::p::p, space :::p, par l {comp icon:::p::p, comp bInitNStarted::l:p::p}}}, space ::13:x}}"
-			"$verticalGroup": "par l {seq t {space :p:19:p, par l {comp jLabel5:::p::p, comp icon:::p::p}, space :p:18:p, par b {comp jLabel1::b:p::p, comp bInitCat::b:p::p, comp bInitWatched::b:p::p, comp jLabel3::b:p::p, comp jLabel2::b:p::p, comp jLabel4::b:p::p, comp bInitWatchN::b:p::p, comp bInitNStarted::b:p::p}, space :::p, par l {comp jScrollPane1::l:p:387:p, comp jScrollPane2::l:p:387:p, comp jScrollPane3::l:p:387:p, comp jScrollPane4::l:p:387:p}, space s:::p, comp button1:::p::p, space ::20:x}}"
+			"$horizontalGroup": "par l {seq l {space :p:19:p, par l {comp jLabel5:::p::p, seq {comp jLabel1:::p::p, space s:::p, comp bInitCat:::p::p}, seq {space :6:6:p, comp jScrollPane1:::p:150:p}}, space :p:27:p, par l {par t:l {comp button1:::p::p, seq {comp jScrollPane2:::p:150:p, space :p:26:p, comp jScrollPane4:::p:150:p, space :p:26:p, comp jScrollPane3:::p:150:p}}, seq l {comp jLabel2:::p::p, space :::p, comp bInitWatchN:::p::p, space :p:12:p, comp jLabel4:::p::p, space :p:24:p, comp bInitWatched:::p::p, space s:::p, par l {comp jLabel3:::p::p, comp button2:::p::p}, space :::p, par l {comp icon:::p::p, comp bInitNStarted::l:p::p}}}, space ::13:x}}"
+			"$verticalGroup": "par l {seq t {space :p:19:p, par l {par b {comp jLabel5::b:p::p, comp button2::b:p::p}, comp icon:::p::p}, space :p:18:p, par b {comp jLabel1::b:p::p, comp bInitCat::b:p::p, comp bInitWatched::b:p::p, comp jLabel3::b:p::p, comp jLabel2::b:p::p, comp jLabel4::b:p::p, comp bInitWatchN::b:p::p, comp bInitNStarted::b:p::p}, space :::p, par l {comp jScrollPane1::l:p:387:p, comp jScrollPane2::l:p:387:p, comp jScrollPane3::l:p:387:p, comp jScrollPane4::l:p:387:p}, space s:::p, comp button1:::p::p, space ::20:x}}"
 		} ) {
 			name: "this"
 			"defaultCloseOperation": 3
@@ -112,6 +112,12 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "icon"
 				"icon": new com.jformdesigner.model.SwingIcon( 1, "/Users/marcosplazagonzalez/Desktop/A04-A04Vista/src/graphicalResources/little.png" )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button2"
+				"text": "Cerca "
+				"font": new java.awt.Font( "AppleGothic", 2, 13 )
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "searchSerieActionPerformed", true ) )
 			} )
 		}, new FormLayoutConstraints( null ) {
 			"size": new java.awt.Dimension( 865, 610 )

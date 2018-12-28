@@ -6,6 +6,8 @@ class Controlador{
 -dades: STUB
 -dao: DAO_XML_STUB
 -facade: ControladorAcces
+{static} controlador: Controlador
++{static} getInstance()
 +getCataleg()
 +registreUsuari(int id, String nom_real, int dni, String nacionalitat, String nickname,
  String password, String data_naixement, String adress, boolean vip)
@@ -13,22 +15,11 @@ class Controlador{
 +visualitzarEpisodi(int ep, int temp, String ser)
 +subscriureEpisodi(int ep, int temp, String ser)
 +valorarEpisodi(int puntuacio, String data, int ep, int temp, String ser)
++isSubscrit(int ep, int temp, String ser)
++addObserverLlista(ObserverLlistas o)
 +llistaDeSeriesComencades()
 +llistaDeSeriesAcabades()
 +llistaDeSeriesNoComencades()
-}
-
-class ControladorAcces{
--dades: STUB
-+registreUsuari(int id, String nom_real, int dni, String nacionalitat, String nickname,
- String password, String data_naixement, String adress, boolean vip)
-+logInUsuari(String nickname, String password)
-}
-
-
-class Administrador{
--nickname: String
--password: String
 }
 
 class Cataleg{
