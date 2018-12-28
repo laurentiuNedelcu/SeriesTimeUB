@@ -74,7 +74,6 @@ public class Controlador { //Funcionalitats de subscriure Episodi i valorar Epis
 
         while(s.hasNext()) {
             Serie se = s.next();
-            System.out.println(se.getTitle());
             if(se.getTitle().equals(nom)){
                 return se.getDescripcio();
             }

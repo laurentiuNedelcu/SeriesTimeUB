@@ -6,7 +6,7 @@ public class Serie {
     private String id, title, descripcio;
     private ArrayList<Temporada> temporades;
 
-    public Serie(String id, String title, String descricpio){
+    public Serie(String id, String title, String descripcio){
         this.id = id;
         this.title = title;
         this.descripcio = descripcio;
@@ -27,11 +27,11 @@ public class Serie {
     }
 
     public String getTitle(){
-        return title;
+        return this.title;
     }
 
     public String getDescripcio(){
-        return descripcio;
+        return this.descripcio;
     }
 
     public void addEp(String title, String duration, String idioma, String description, String data, String numTemporada) {

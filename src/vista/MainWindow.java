@@ -49,10 +49,6 @@ public class MainWindow extends javax.swing.JFrame implements ObserverLlistas{
         nou.setVisible(true);
     }
 
-    private void closeActionPerformed(ActionEvent e) {
-        // TODO add your code here
-    }
-
     public MainWindow() {
         this.contr = Controlador.getInstance();
         contr.addObserverLlista(this);
@@ -205,7 +201,6 @@ public class MainWindow extends javax.swing.JFrame implements ObserverLlistas{
         button1.setText("Tanca la sessi\u00f3");
         button1.setFont(new Font("AppleGothic", Font.ITALIC, 13));
         button1.addActionListener(e -> {
-			closeActionPerformed(e);
 			exitActionPerformed(e);
 		});
 
