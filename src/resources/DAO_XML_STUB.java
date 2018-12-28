@@ -11,16 +11,6 @@ import model.Serie;
  */
 public class DAO_XML_STUB implements DAO_STUB {
 	STUB dades;
-	private String serie;
-	private String temporada;
-	private String admin;
-	private String client;
-	private String episodi;
-	private String valoracio;
-	private String productora;
-	private String artista; //director i actor
-	private String subscripcio;
-	private String visualitzacio;
 
 	/* -------------------------------------------------------------------
 	 * Metodes a implementar per vosaltres. En aquests metodes creareu els
@@ -109,13 +99,7 @@ public class DAO_XML_STUB implements DAO_STUB {
 	 * @param nacionalitat
 	 */
 
-	public void loadArtista(String id, String nom, String tipus, String idSerie, String nacionalitat) {
-
-		/* TODO: Aqui feu el necessari per a crear els artistes per a la serie
-		 */
-
-		this.artista=nom;
-	}
+	public void loadArtista(String id, String nom, String tipus, String idSerie, String nacionalitat) {}
 
 
 	/**
@@ -125,13 +109,7 @@ public class DAO_XML_STUB implements DAO_STUB {
 	 * @param nom nom de la productora
 	 * @param idSerie id de la serie que va fer. El podeu utilitzar o no
 	 */
-	public void loadProductora(String id, String nom, String idSerie) {
-
-		/* TODO: Aqui feu el necessari per a crear les productores per a les series
-		 */
-
-		this.productora=nom;
-	}
+	public void loadProductora(String id, String nom, String idSerie) {	}
 
 	/**
 	 * Crea una valoracio a partir de la informacio obtinguda del fitxer XML
@@ -224,43 +202,4 @@ public class DAO_XML_STUB implements DAO_STUB {
 		dades.visualitzarEpisodi(client,ep,temp,serie);
 	}
 
-	public String getSerie() {
-		return serie;
-	}
-
-	public String getTemporada() {
-		return temporada;
-	}
-
-	public String getClient() {
-		return client;
-	}
-
-	public String getAdmin() {
-		return admin;
-	}
-
-	public String getEpisodi() {
-		return episodi;
-	}
-
-	public String getValoracio() {
-		return valoracio;
-	}
-
-	public String getProductora() {
-		return productora;
-	}
-
-	public String getArtista() {
-		return artista;
-	}
-
-	public String getSubscripcio() {
-		return subscripcio;
-	}
-
-	public String getVisualitzacio() {
-		return visualitzacio;
-	}
 }
