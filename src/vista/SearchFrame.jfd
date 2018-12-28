@@ -1,0 +1,45 @@
+JFDML JFormDesigner: "6.0.5.0.178" Java: "1.8.0_152-release" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {seq l {space :p:31:p, par t {seq {par l {comp jLabel1:::p::p, comp jTextField1:::p:221:p}, space ::107:x, comp jLabel2:::p::p}, seq {comp jButton2:::p::p, space :::x, comp jButton1:::p::p}}, space :p:23:p}}"
+			"$verticalGroup": "par l {seq l {space :p:28:p, par l {seq {comp jLabel1:::p::p, space s:::p, comp jTextField1:::p::p}, comp jLabel2:::p::p}, space ::121:x, par b {comp jButton2::b:p::p, comp jButton1::b:p::p}, space :p:27:p}}"
+		} ) {
+			name: "this"
+			"defaultCloseOperation": 3
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "jLabel1"
+				"font": new java.awt.Font( "AppleGothic", 2, 22 )
+				"text": "CERCADOR "
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "jTextField1"
+				"foreground": new java.awt.Color( 102, 102, 102, 255 )
+				"text": "Introdueix el nom de la sèrie..."
+				"doubleBuffered": true
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "jTextField1ActionPerformed", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "jButton1"
+				"font": new java.awt.Font( "AppleGothic", 2, 12 )
+				"text": "Cancela"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "jButton1ActionPerformed", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "jButton2"
+				"font": new java.awt.Font( "AppleGothic", 2, 12 )
+				"text": "Busca"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "jButton2ActionPerformed", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "jLabel2"
+				"icon": new com.jformdesigner.model.SwingIcon( 1, "/Users/marcosplazagonzalez/Desktop/A04VIEW/src/graphicalResources/right-pointing-magnifying-glass_1f50e.png" )
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"size": new java.awt.Dimension( 400, 300 )
+			"location": new java.awt.Point( 0, 0 )
+		} )
+	}
+}

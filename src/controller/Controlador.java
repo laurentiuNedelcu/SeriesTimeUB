@@ -6,6 +6,7 @@ import model.Usuari;
 import model.UsuariAcces;
 import resources.DAO_XML_STUB;
 import vista.ObserverLlistas;
+import java.util.*;
 
 import java.util.List;
 
@@ -65,6 +66,20 @@ public class Controlador { //Funcionalitats de subscriure Episodi i valorar Epis
 
     public List<Serie> llistaDeSeriesNoComencades(){
         return dades.getLlistatSeriesNoComencades();
+    }
+
+    public String buscaSerie(String nom){
+        List<Serie> cataleg = dades.getCataleg();
+        Iterator<Serie> s = cataleg.iterator();
+
+        while(s.hasNext()) {
+            Serie se = s.next();
+            System.out.println(se.getTitle());
+            if(se.getTitle().equals(nom)){
+                return se.getDescripcio();
+            }
+        }
+        return null;
     }
 
 }

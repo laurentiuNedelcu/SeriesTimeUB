@@ -38,13 +38,19 @@ public class MainWindow extends javax.swing.JFrame implements ObserverLlistas{
     /**
      * Creates new form MainWindow
      */
-    private void closeActionPerformed(ActionEvent e) {
-        // TODO add your code here
-    }
 
     private void exitActionPerformed(ActionEvent e) {
         this.dispose();
         JOptionPane.showMessageDialog(null,"S'ha finalitzat la sessió amb èxit!", "Fins aviat!", JOptionPane.INFORMATION_MESSAGE);
+    }
+
+    private void searchSerieActionPerformed(ActionEvent e) {
+        SearchFrame nou = new SearchFrame();
+        nou.setVisible(true);
+    }
+
+    private void closeActionPerformed(ActionEvent e) {
+        // TODO add your code here
     }
 
     public MainWindow() {
@@ -81,6 +87,7 @@ public class MainWindow extends javax.swing.JFrame implements ObserverLlistas{
         bInitNStarted = new JButton();
         button1 = new JButton();
         icon = new JLabel();
+        button2 = new JButton();
 
         //======== this ========
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -205,6 +212,11 @@ public class MainWindow extends javax.swing.JFrame implements ObserverLlistas{
         //---- icon ----
         icon.setIcon(new ImageIcon("/Users/marcosplazagonzalez/Desktop/A04-A04Vista/src/graphicalResources/little.png"));
 
+        //---- button2 ----
+        button2.setText("Cerca ");
+        button2.setFont(new Font("AppleGothic", Font.ITALIC, 13));
+        button2.addActionListener(e -> searchSerieActionPerformed(e));
+
         GroupLayout contentPaneLayout = new GroupLayout(contentPane);
         contentPane.setLayout(contentPaneLayout);
         contentPaneLayout.setHorizontalGroup(
@@ -239,7 +251,9 @@ public class MainWindow extends javax.swing.JFrame implements ObserverLlistas{
                             .addGap(24, 24, 24)
                             .addComponent(bInitWatched)
                             .addGap(18, 18, 18)
-                            .addComponent(jLabel3)
+                            .addGroup(contentPaneLayout.createParallelGroup()
+                                .addComponent(jLabel3)
+                                .addComponent(button2))
                             .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                             .addGroup(contentPaneLayout.createParallelGroup()
                                 .addComponent(icon)
@@ -251,7 +265,9 @@ public class MainWindow extends javax.swing.JFrame implements ObserverLlistas{
                 .addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
                     .addGap(19, 19, 19)
                     .addGroup(contentPaneLayout.createParallelGroup()
-                        .addComponent(jLabel5)
+                        .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel5)
+                            .addComponent(button2))
                         .addComponent(icon))
                     .addGap(18, 18, 18)
                     .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
@@ -521,13 +537,14 @@ public class MainWindow extends javax.swing.JFrame implements ObserverLlistas{
     private JButton bInitNStarted;
     private JButton button1;
     private JLabel icon;
+    private JButton button2;
 
     @Override
     public void updateLlistas() {
         initCat();
         initWatched();
-        initNotStarted();
         initWatchNext();
+        initNotStarted();
     }
     // End of variables declaration//GEN-END:variables
 }
