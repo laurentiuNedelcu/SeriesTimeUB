@@ -3,7 +3,6 @@ package vista;
 
 import java.awt.event.*;
 
-import com.sun.codemodel.internal.JOp;
 import controller.Controlador;
 import model.Serie;
 import model.Temporada;

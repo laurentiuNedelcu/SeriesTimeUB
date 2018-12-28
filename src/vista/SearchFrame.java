@@ -117,7 +117,7 @@ public class SearchFrame extends JFrame {
         if (controlador.buscaSerie(nomSerie) == null) {
             JOptionPane.showMessageDialog(null, "No s'ha trobat cap coincidència!", "ATENCIÓ!", JOptionPane.WARNING_MESSAGE);
         } else {
-            JOptionPane.showMessageDialog(null, nomSerie+"\n\nPlot:\n"+desc, "CERCADOR", JOptionPane.);
+            JOptionPane.showMessageDialog(null, nomSerie+"\n\nPlot:\n"+desc, "CERCADOR", JOptionPane.INFORMATION_MESSAGE);
         }//GEN-LAST:event_jButton2ActionPerformed
     }
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
