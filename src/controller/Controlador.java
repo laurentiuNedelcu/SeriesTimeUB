@@ -70,15 +70,15 @@ public class Controlador { //Funcionalitats de subscriure Episodi i valorar Epis
 
     public String buscaSerie(String nom){
         List<Serie> cataleg = dades.getCataleg();
-        Serie s;
+        Iterator<Serie> s = cataleg.iterator();
 
-        for(Iterator<Serie> i = cataleg.iterator(); i.hasNext();){
-            s = i.next();
-            if(s.getTitle().equals(nom)){
-                return s.getDescripcio();
+        while(s.hasNext()) {
+            Serie se = s.next();
+            System.out.println(se.getTitle());
+            if(se.getTitle().equals(nom)){
+                return se.getDescripcio();
             }
         }
-
         return null;
     }
 

@@ -23,6 +23,7 @@ public class SearchFrame extends JFrame {
      */
     public SearchFrame() {
         initComponents();
+        this.controlador = Controlador.getInstance();
     }
 
     /**
@@ -113,7 +114,8 @@ public class SearchFrame extends JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         String nomSerie = jTextField1.getText();
         String desc = controlador.buscaSerie(nomSerie);
-        JOptionPane.showMessageDialog(null, nomSerie, desc, JOptionPane.PLAIN_MESSAGE);
+        System.out.println(desc);
+        JOptionPane.showMessageDialog(null, desc, nomSerie, JOptionPane.PLAIN_MESSAGE);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
