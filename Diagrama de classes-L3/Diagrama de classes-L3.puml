@@ -355,6 +355,7 @@ vista --> graphicalResources: utilitza
 javax.swing <|-- vista
 java.awt <|-- vista
 STUB3 "1" --> "1" STUB_LogInSignIn: inicia
+STUB3 ..|> ObserverLlistas: implementa
 STUB_LogInSignIn "1" --> "1" MainWindow: continua
 MainWindow "1" --> "*" EpSelection: pot instànciar
 MainWindow "1" --> "*" SearchFrame: pot instànciar
